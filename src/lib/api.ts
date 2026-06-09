@@ -15,7 +15,7 @@ export function resolveMediaUrl(path: string | null): string | null {
 }
 
 export async function getProjects(): Promise<Project[]> {
-  const res = await fetch(`${getApiBaseUrl()}/projects/`);
+  const res = await fetch(`${getApiBaseUrl()}/projects`);
 
   if (!res.ok) {
     throw new Error(`Failed to fetch projects (${res.status})`);
