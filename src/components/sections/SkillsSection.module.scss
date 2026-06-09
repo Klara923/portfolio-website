@@ -1,0 +1,53 @@
+.groups {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.groupLabel {
+  font-size: var(--text-small);
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.65rem;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  list-style: none;
+}
+
+.item {
+  font-size: var(--text-body);
+  font-weight: 500;
+  line-height: var(--leading-snug);
+  padding: 0.5rem 1rem;
+  border: 1px solid;
+}
+
+.frontend {
+  color: var(--skill-frontend-text);
+  background: var(--skill-frontend-bg);
+  border-color: var(--skill-frontend-border);
+}
+
+.backend {
+  color: var(--skill-backend-text);
+  background: var(--skill-backend-bg);
+  border-color: var(--skill-backend-border);
+}
+
+.tools {
+  color: var(--skill-tools-text);
+  background: var(--skill-tools-bg);
+  border-color: var(--skill-tools-border);
+}
+
+.design {
+  color: var(--skill-design-text);
+  background: var(--skill-design-bg);
+  border-color: var(--skill-design-border);
+}

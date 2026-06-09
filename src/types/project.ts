@@ -1,0 +1,22 @@
+export type Project = {
+  id: number;
+  title: string;
+  slug: string;
+  category: "programming" | "design";
+  description: string;
+  short_description: string;
+  problem: string;
+  solution: string;
+  challenge: string;
+  result: string;
+  technologies: string[];
+  image: string | null;
+  secondary_media: string | null;
+  pdf: string | null;
+  project_url: string;
+  github_url: string;
+  featured: boolean;
+  display_order: number;
+  created_at: string;
+  updated_at: string;
+};

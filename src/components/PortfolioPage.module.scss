@@ -1,0 +1,127 @@
+.page {
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.hero {
+  padding: clamp(8rem, 18vh, 12rem) 0 clamp(3rem, 8vw, 5rem);
+}
+
+.heroInner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 5vw, 2.5rem);
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  gap: clamp(1rem, 6vw, 1rem);
+  align-items: start;
+}
+
+.heroLeft {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 6vw, 4rem);
+}
+
+.heroTitle {
+  font-size: var(--text-display);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: var(--leading-tight);
+  color: var(--foreground);
+}
+
+.heroArrow {
+  display: inline-flex;
+  font-size: 1.75rem;
+  color: var(--foreground);
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(4px);
+  }
+}
+
+.heroDesc {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 60ch;
+  margin-top: clamp(0.5rem, 2vw, 1.25rem);
+
+  p {
+    font-size: var(--text-lead);
+    font-weight: 400;
+    line-height: var(--leading-snug);
+    color: var(--muted);
+  }
+
+  strong {
+    font-weight: 600;
+    color: var(--foreground);
+  }
+}
+
+.ref {
+  font-size: 0.6em;
+  vertical-align: super;
+  font-weight: 600;
+  color: var(--accent);
+  margin-left: 1px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(3rem, 8vw, 5rem) clamp(1.25rem, 5vw, 2.5rem);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.footerName {
+  font-size: var(--text-small);
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.footerLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+
+  a {
+    font-size: var(--text-small);
+    font-weight: 500;
+    color: var(--foreground);
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
+}
+
+@media (max-width: 760px) {
+  .heroInner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .heroDesc {
+    margin-top: 0;
+  }
+}

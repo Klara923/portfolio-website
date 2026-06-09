@@ -1,0 +1,90 @@
+@use "@/styles/mixins" as *;
+
+.card {
+  @include surface-card;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    border-color: rgba(124, 108, 255, 0.45);
+    transform: translateY(-2px);
+  }
+}
+
+.imageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.image {
+  object-fit: cover;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.titleRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.featured {
+  @include pill;
+  flex-shrink: 0;
+}
+
+.description {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  flex: 1;
+}
+
+.techList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tech {
+  @include pill;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--muted);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.links {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+  padding-top: 0.25rem;
+}
+
+.link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--accent);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

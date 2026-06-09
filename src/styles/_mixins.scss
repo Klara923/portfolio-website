@@ -1,0 +1,27 @@
+@mixin surface-card {
+  background: rgba(26, 26, 36, 0.65);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.5rem 1.75rem;
+}
+
+@mixin pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  font-size: var(--text-small);
+  font-weight: 500;
+  background: rgba(139, 124, 255, 0.12);
+  color: var(--accent-soft);
+  border: 1px solid rgba(139, 124, 255, 0.22);
+}
+
+@mixin section-eyebrow {
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
