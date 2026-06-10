@@ -1,9 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useMemo } from "react";
+import { ProjectImage } from "@/components/ProjectImage/ProjectImage";
 import { resolveMediaUrl } from "@/lib/api";
+import { isImageUrl } from "@/lib/media";
 import { useProjects } from "@/lib/queries/projects";
 import type { Project } from "@/types/project";
 import { useReveal } from "@/components/reveal/useReveal";
@@ -52,14 +53,13 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
         className={styles.thumb}
         aria-label={`View ${project.title}`}
       >
-        {imageUrl ? (
-          <Image
+        {imageUrl && isImageUrl(imageUrl) ? (
+          <ProjectImage
             src={imageUrl}
             alt={project.title}
             fill
             className={styles.thumbImage}
             sizes="(max-width: 760px) 100vw, 560px"
-            unoptimized={process.env.NODE_ENV !== "production"}
           />
         ) : (
           <span className={styles.thumbPlaceholder} aria-hidden>

@@ -1,9 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { ProjectImage } from "@/components/ProjectImage/ProjectImage";
 import { resolveMediaUrl } from "@/lib/api";
+import { isImageUrl, isPdfUrl, isVideoUrl } from "@/lib/media";
 import { useProject } from "@/lib/queries/projects";
 import type { Project } from "@/types/project";
 import styles from "./ProjectDetail.module.scss";
@@ -14,13 +15,6 @@ const CASE_STUDY_SECTIONS: { key: keyof Project; label: string }[] = [
   { key: "challenge", label: "Challenge" },
   { key: "result", label: "Result" },
 ];
-
-const VIDEO_EXTENSIONS = [".mp4", ".webm", ".ogg", ".ogv", ".mov", ".m4v"];
-
-function isVideoUrl(url: string): boolean {
-  const path = url.split("?")[0].toLowerCase();
-  return VIDEO_EXTENSIONS.some((ext) => path.endsWith(ext));
-}
 
 function PdfEmbed({ url, title }: { url: string; title: string }) {
   const [blobUrl, setBlobUrl] = useState<string | null>(null);
@@ -154,16 +148,15 @@ function ProjectBody({ project }: { project: Project }) {
         )}
       </header>
 
-      {imageUrl && (
+      {imageUrl && isImageUrl(imageUrl) && (
         <div className={styles.cover}>
-          <Image
+          <ProjectImage
             src={imageUrl}
             alt={project.title}
             fill
             className={styles.coverImage}
             sizes="(max-width: 1120px) 100vw, 1120px"
             priority
-            unoptimized={process.env.NODE_ENV !== "production"}
           />
         </div>
       )}
@@ -186,16 +179,24 @@ function ProjectBody({ project }: { project: Project }) {
               muted
               playsInline
             />
-          ) : (
-            <Image
+          ) : isPdfUrl(secondaryUrl) ? (
+            <a
+              href={secondaryUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.pdfLink}
+            >
+              View PDF
+            </a>
+          ) : isImageUrl(secondaryUrl) ? (
+            <ProjectImage
               src={secondaryUrl}
               alt={`${project.title} — additional view`}
               fill
               className={styles.secondaryImage}
               sizes="(max-width: 1120px) 100vw, 1120px"
-              unoptimized={process.env.NODE_ENV !== "production"}
             />
-          )}
+          ) : null}
         </div>
       )}
 

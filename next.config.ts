@@ -58,6 +58,11 @@ const nextConfig: NextConfig = {
         pathname: "/media/**",
       },
       ...(apiPattern ? [apiPattern] : []),
+      {
+        protocol: "https",
+        hostname: "kgdetmzwcglgqocmpgna.supabase.co",
+        pathname: "/storage/v1/object/public/**",
+      },
       ...(supabasePattern ? [supabasePattern] : []),
     ],
   },

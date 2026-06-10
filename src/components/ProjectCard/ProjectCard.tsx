@@ -1,6 +1,7 @@
-import Image from "next/image";
 import type { Project } from "@/types/project";
+import { ProjectImage } from "@/components/ProjectImage/ProjectImage";
 import { resolveMediaUrl } from "@/lib/api";
+import { isImageUrl } from "@/lib/media";
 import styles from "./ProjectCard.module.scss";
 
 type ProjectCardProps = {
@@ -14,9 +15,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <article className={styles.card}>
-      {imageUrl && (
+      {imageUrl && isImageUrl(imageUrl) && (
         <div className={styles.imageWrap}>
-          <Image
+          <ProjectImage
             src={imageUrl}
             alt={project.title}
             fill
