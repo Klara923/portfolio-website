@@ -44,6 +44,13 @@
   gap: 1rem 2rem;
 }
 
+.navEnd {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+  margin-left: auto;
+}
+
 .navGroup {
   display: flex;
   align-items: center;
@@ -154,6 +161,14 @@
     pointer-events: auto;
   }
 
+  .navEnd {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    margin-left: 0;
+    gap: 0;
+  }
+
   .navGroup {
     flex-direction: column;
     align-items: stretch;
@@ -167,7 +182,7 @@
     border-bottom: 1px solid var(--line);
   }
 
-  .navGroup:last-child .navLink:last-child {
+  .navEnd .navGroup .navLink:last-child {
     border-bottom: none;
   }
 }

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { site } from "@/data/portfolio";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import styles from "./SiteHeader.module.scss";
 
 const navItems = [
@@ -72,23 +73,27 @@ export function SiteHeader() {
             ))}
           </div>
 
-          <div className={styles.navGroup}>
-            {socialItems.map((item) => {
-              const isMail = item.href.startsWith("mailto:");
-              return (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className={`${styles.navLink} ${styles.navSocial}`}
-                  onClick={() => setMenuOpen(false)}
-                  {...(isMail
-                    ? {}
-                    : { target: "_blank", rel: "noopener noreferrer" })}
-                >
-                  {item.label}
-                </a>
-              );
-            })}
+          <div className={styles.navEnd}>
+            <div className={styles.navGroup}>
+              {socialItems.map((item) => {
+                const isMail = item.href.startsWith("mailto:");
+                return (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    className={`${styles.navLink} ${styles.navSocial}`}
+                    onClick={() => setMenuOpen(false)}
+                    {...(isMail
+                      ? {}
+                      : { target: "_blank", rel: "noopener noreferrer" })}
+                  >
+                    {item.label}
+                  </a>
+                );
+              })}
+            </div>
+
+            <LanguageSwitcher onSelect={() => setMenuOpen(false)} />
           </div>
         </nav>
       </div>

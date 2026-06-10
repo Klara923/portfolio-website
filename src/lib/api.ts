@@ -1,4 +1,5 @@
 import type { Project } from "@/types/project";
+import type { SiteConfig } from "@/types/site";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://127.0.0.1:8000";
 
@@ -18,8 +19,24 @@ export function resolveMediaUrl(path: string | null): string | null {
   return `${getMediaBaseUrl()}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
-export async function getProjects(): Promise<Project[]> {
-  const res = await fetch(`${getApiBaseUrl()}/projects`);
+function withLanguage(url: string, language?: string): string {
+  if (!language) return url;
+  const separator = url.includes("?") ? "&" : "?";
+  return `${url}${separator}lang=${encodeURIComponent(language)}`;
+}
+
+export async function getSiteConfig(): Promise<SiteConfig> {
+  const res = await fetch(`${getApiBaseUrl()}/config/`);
+
+  if (!res.ok) {
+    throw new Error(`Failed to fetch site config (${res.status})`);
+  }
+
+  return res.json();
+}
+
+export async function getProjects(language?: string): Promise<Project[]> {
+  const res = await fetch(withLanguage(`${getApiBaseUrl()}/projects`, language));
 
   if (!res.ok) {
     throw new Error(`Failed to fetch projects (${res.status})`);
@@ -28,9 +45,15 @@ export async function getProjects(): Promise<Project[]> {
   return res.json();
 }
 
-export async function getProject(slug: string): Promise<Project> {
+export async function getProject(
+  slug: string,
+  language?: string,
+): Promise<Project> {
   const res = await fetch(
-    `${getApiBaseUrl()}/projects/${encodeURIComponent(slug)}/`,
+    withLanguage(
+      `${getApiBaseUrl()}/projects/${encodeURIComponent(slug)}/`,
+      language,
+    ),
   );
 
   if (res.status === 404) {

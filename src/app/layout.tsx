@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
+import { LanguageProvider } from "@/providers/LanguageProvider";
 import { QueryProvider } from "@/providers/QueryProvider";
 import "./globals.scss";
 
@@ -21,7 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={geistSans.variable}>
       <body>
-        <QueryProvider>{children}</QueryProvider>
+        <LanguageProvider>
+          <QueryProvider>{children}</QueryProvider>
+        </LanguageProvider>
       </body>
     </html>
   );
