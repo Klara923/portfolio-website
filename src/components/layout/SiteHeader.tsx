@@ -5,10 +5,9 @@ import { site } from "@/data/portfolio";
 import styles from "./SiteHeader.module.scss";
 
 const navItems = [
-  { label: "Work", href: "#projects" },
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Contact", href: "#contact" },
+  { label: "Experience", href: "/#experience" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 const socialItems = [

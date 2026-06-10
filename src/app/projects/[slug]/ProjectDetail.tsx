@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { SiteHeader } from "@/components/layout/SiteHeader";
 import { ProjectImage } from "@/components/ProjectImage/ProjectImage";
 import { resolveMediaUrl } from "@/lib/api";
 import { isImageUrl, isPdfUrl, isVideoUrl } from "@/lib/media";
@@ -69,40 +70,43 @@ export function ProjectDetail({ slug }: { slug: string }) {
     isError && error instanceof Error && error.message === "not-found";
 
   return (
-    <main className={styles.page}>
-      <div className={styles.inner}>
-        <Link href="/#projects" className={styles.back}>
-          ← Back to projects
-        </Link>
+    <>
+      <SiteHeader />
+      <main className={styles.page}>
+        <div className={styles.inner}>
+          <Link href="/#projects" className={styles.back}>
+            ← Back to projects
+          </Link>
 
-        {isLoading && (
-          <div className={styles.loading} aria-busy="true">
-            <div className={styles.skeletonHero} />
-            <div className={styles.skeletonLine} />
-            <div className={styles.skeletonLine} />
-          </div>
-        )}
+          {isLoading && (
+            <div className={styles.loading} aria-busy="true">
+              <div className={styles.skeletonHero} />
+              <div className={styles.skeletonLine} />
+              <div className={styles.skeletonLine} />
+            </div>
+          )}
 
-        {notFound && (
-          <div className={styles.message}>
-            <h1 className={styles.title}>Project not found</h1>
-            <p className={styles.lead}>
-              We couldn&apos;t find a project at this address.
+          {notFound && (
+            <div className={styles.message}>
+              <h1 className={styles.title}>Project not found</h1>
+              <p className={styles.lead}>
+                We couldn&apos;t find a project at this address.
+              </p>
+            </div>
+          )}
+
+          {isError && !notFound && (
+            <p className={styles.message} role="alert">
+              {error instanceof Error
+                ? error.message
+                : "Could not load this project."}
             </p>
-          </div>
-        )}
+          )}
 
-        {isError && !notFound && (
-          <p className={styles.message} role="alert">
-            {error instanceof Error
-              ? error.message
-              : "Could not load this project."}
-          </p>
-        )}
-
-        {project && <ProjectBody project={project} />}
-      </div>
-    </main>
+          {project && <ProjectBody project={project} />}
+        </div>
+      </main>
+    </>
   );
 }
 

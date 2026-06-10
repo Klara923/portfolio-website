@@ -20,8 +20,8 @@ export const site = {
   name: "Klara",
   contact: {
     email: "klara.swiecicka@hotmail.com",
-    github: "https://github.com",
-    linkedin: "https://linkedin.com",
+    github: "https://github.com/Klara923",
+    linkedin: "www.linkedin.com/in/klaramariaswiecicka",
   },
 };
 
