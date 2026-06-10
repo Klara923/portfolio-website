@@ -69,6 +69,7 @@ export const workExperience: ExperienceEntry[] = [
     organization: "Omnilexia",
     period: "02.2024 – 06.2024",
     role: "UX/UI Design, Digital Marketing and Fullstack Engineer Intern",
+    url: "https://omnilexia.com",
   },
   {
     id: "omnilexia-fe",
