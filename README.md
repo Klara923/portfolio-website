@@ -19,4 +19,9 @@ src/
 └── types/            # TypeScript types
 ```
 
-Copy `.env.local.example` to `.env.local` and point `NEXT_PUBLIC_API_URL` at your Django API.
+Copy `.env.local.example` to `.env.local` and set:
+
+- `NEXT_PUBLIC_API_URL` — your Django API base URL
+- `NEXT_PUBLIC_SUPABASE_URL` — your Supabase project URL (for media via `next/image`)
+
+Supabase S3 credentials belong on the **backend** (Render), not in this frontend.

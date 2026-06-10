@@ -6,12 +6,16 @@ export function getApiBaseUrl(): string {
   return API_URL.replace(/\/$/, "");
 }
 
+function getMediaBaseUrl(): string {
+  return getApiBaseUrl().replace(/\/api$/, "");
+}
+
 export function resolveMediaUrl(path: string | null): string | null {
   if (!path) return null;
   if (path.startsWith("http://") || path.startsWith("https://")) {
     return path;
   }
-  return `${getApiBaseUrl()}${path.startsWith("/") ? path : `/${path}`}`;
+  return `${getMediaBaseUrl()}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
 export async function getProjects(): Promise<Project[]> {
@@ -26,7 +30,7 @@ export async function getProjects(): Promise<Project[]> {
 
 export async function getProject(slug: string): Promise<Project> {
   const res = await fetch(
-    `${getApiBaseUrl()}/api/projects/${encodeURIComponent(slug)}/`,
+    `${getApiBaseUrl()}/projects/${encodeURIComponent(slug)}/`,
   );
 
   if (res.status === 404) {
