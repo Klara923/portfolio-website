@@ -2,7 +2,7 @@ import type { Project } from "@/types/project";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://127.0.0.1:8000";
 
-export function getApiBaseUrl(): string {
+function getApiBaseUrl(): string {
   return API_URL.replace(/\/$/, "");
 }
 

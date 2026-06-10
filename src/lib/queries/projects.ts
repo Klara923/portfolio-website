@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { getProject, getProjects } from "@/lib/api";
 
-export const projectKeys = {
+const projectKeys = {
   all: ["projects"] as const,
   detail: (slug: string) => ["projects", slug] as const,
 };

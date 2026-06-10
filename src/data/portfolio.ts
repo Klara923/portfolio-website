@@ -18,10 +18,6 @@ export type ExperienceEntry = {
 
 export const site = {
   name: "Klara",
-  tagline: "Graphic Design · Web Development · Fullstack",
-  about:
-    "Full-stack Developer with nearly 3 years of commercial experience building AI-powered legal-tech products. My primary stack includes React, TypeScript, and Django, with a strong focus on frontend development. I combine technical expertise with a background in Graphic Design and Software Development, having studied for over 4 years in Sweden, giving me a strong foundation in UX/UI design and user-centered thinking. I am currently based in Poland and open to remote, hybrid, and international opportunities.",
-  projectsMoreUrl: "",
   contact: {
     email: "klara.swiecicka@hotmail.com",
     github: "https://github.com",

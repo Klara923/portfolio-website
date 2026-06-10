@@ -18,8 +18,6 @@ import { ContactSection } from "@/components/sections/ContactSection";
 import styles from "./PortfolioPage.module.scss";
 
 export function PortfolioPage() {
-  const year = new Date().getFullYear();
-
   return (
     <div className={styles.page}>
       <SiteHeader />
@@ -96,7 +94,6 @@ export function PortfolioPage() {
       </main>
 
       <footer className={styles.footer}>
-        <span className={styles.footerName}></span>
         <div className={styles.footerLinks}>
           <a
             href={site.contact.github}

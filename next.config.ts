@@ -42,26 +42,14 @@ const apiPattern = apiMediaRemotePattern();
 const supabasePattern = supabaseMediaRemotePattern();
 
 const nextConfig: NextConfig = {
-  transpilePackages: ["@splinetool/react-spline", "@splinetool/runtime"],
   images: {
     remotePatterns: [
-      {
-        protocol: "http",
-        hostname: "127.0.0.1",
-        port: "8000",
-        pathname: "/media/**",
-      },
+      ...(apiPattern ? [apiPattern] : []),
       {
         protocol: "http",
         hostname: "localhost",
         port: "8000",
         pathname: "/media/**",
-      },
-      ...(apiPattern ? [apiPattern] : []),
-      {
-        protocol: "https",
-        hostname: "kgdetmzwcglgqocmpgna.supabase.co",
-        pathname: "/storage/v1/object/public/**",
       },
       ...(supabasePattern ? [supabasePattern] : []),
     ],

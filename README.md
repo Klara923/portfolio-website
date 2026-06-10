@@ -15,7 +15,6 @@ src/
 ├── app/              # App router pages & global SCSS
 ├── components/       # React components + *.module.scss
 ├── lib/              # API client
-├── styles/           # Shared SCSS mixins & variables
 └── types/            # TypeScript types
 ```
 
