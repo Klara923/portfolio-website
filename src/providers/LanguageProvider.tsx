@@ -9,7 +9,6 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { getTranslation, type Locale } from "@/i18n";
 import { getSiteConfig } from "@/lib/api";
 import type { LanguageOption } from "@/types/site";
 
@@ -22,13 +21,11 @@ const DISPLAY_LABELS: Record<string, string> = {
 
 type LanguageContextValue = {
   language: string;
-  locale: Locale;
   setLanguage: (code: string) => void;
   languages: LanguageOption[];
   switcherEnabled: boolean;
   ready: boolean;
   getLabel: (code: string) => string;
-  t: (path: string, params?: Record<string, string>) => string;
 };
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
@@ -93,26 +90,16 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
     [],
   );
 
-  const locale: Locale = language === "pl" ? "pl" : "en";
-
-  const t = useCallback(
-    (path: string, params?: Record<string, string>) =>
-      getTranslation(locale, path, params),
-    [locale],
-  );
-
   const value = useMemo(
     () => ({
       language,
-      locale,
       setLanguage,
       languages,
       switcherEnabled,
       ready,
       getLabel,
-      t,
     }),
-    [language, locale, setLanguage, languages, switcherEnabled, ready, getLabel, t],
+    [language, setLanguage, languages, switcherEnabled, ready, getLabel],
   );
 
   return (

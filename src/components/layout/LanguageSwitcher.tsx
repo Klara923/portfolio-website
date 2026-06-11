@@ -10,7 +10,7 @@ type LanguageSwitcherProps = {
 };
 
 export function LanguageSwitcher({ onSelect }: LanguageSwitcherProps) {
-  const { language, setLanguage, languages, switcherEnabled, ready, getLabel, t } =
+  const { language, setLanguage, languages, switcherEnabled, ready, getLabel } =
     useLanguage();
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
@@ -70,7 +70,7 @@ export function LanguageSwitcher({ onSelect }: LanguageSwitcherProps) {
         className={`${styles.panel} ${open ? styles.panelOpen : ""}`}
         aria-hidden={!open}
       >
-        <p className={styles.panelLabel}>{t("nav.language")}</p>
+        <p className={styles.panelLabel}>Language</p>
         <ul id={listboxId} className={styles.menu} role="listbox">
           {languages.map((item) => {
             const selected = item.code === language;

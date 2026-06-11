@@ -1,12 +1,7 @@
-"use client";
-
-import { useLanguage } from "@/providers/LanguageProvider";
 import { FeaturedProjectsList } from "./FeaturedProjectsList";
 import styles from "./ProjectsGrid.module.scss";
 
 export function ProjectsGrid() {
-  const { t } = useLanguage();
-
   return (
     <section
       id="projects"
@@ -15,7 +10,7 @@ export function ProjectsGrid() {
     >
       <div className={styles.container}>
         <h2 id="projects-heading" className={styles.sectionLabel}>
-          {t("sections.projects")}
+          Projects
         </h2>
 
         <FeaturedProjectsList />

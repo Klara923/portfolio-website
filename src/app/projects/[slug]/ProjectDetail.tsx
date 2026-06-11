@@ -7,21 +7,17 @@ import { ProjectImage } from "@/components/ProjectImage/ProjectImage";
 import { resolveMediaUrl } from "@/lib/api";
 import { isImageUrl, isPdfUrl, isVideoUrl } from "@/lib/media";
 import { useProject } from "@/lib/queries/projects";
-import { useLanguage } from "@/providers/LanguageProvider";
 import type { Project } from "@/types/project";
 import styles from "./ProjectDetail.module.scss";
 
-function PdfEmbed({
-  url,
-  title,
-  previewError,
-  loadingLabel,
-}: {
-  url: string;
-  title: string;
-  previewError: string;
-  loadingLabel: string;
-}) {
+const CASE_STUDY_SECTIONS: { key: keyof Project; label: string }[] = [
+  { key: "problem", label: "Problem" },
+  { key: "solution", label: "Solution" },
+  { key: "challenge", label: "Challenge" },
+  { key: "result", label: "Result" },
+];
+
+function PdfEmbed({ url, title }: { url: string; title: string }) {
   const [blobUrl, setBlobUrl] = useState<string | null>(null);
   const [failed, setFailed] = useState(false);
 
@@ -53,18 +49,21 @@ function PdfEmbed({
   }, [url]);
 
   if (failed) {
-    return <p className={styles.body}>{previewError}</p>;
+    return (
+      <p className={styles.body}>
+        Couldn&apos;t preview this PDF. Use the link below to open it.
+      </p>
+    );
   }
 
   if (!blobUrl) {
-    return <div className={styles.pdfLoading}>{loadingLabel}</div>;
+    return <div className={styles.pdfLoading}>Loading PDF…</div>;
   }
 
   return <iframe src={blobUrl} className={styles.pdfViewer} title={title} />;
 }
 
 export function ProjectDetail({ slug }: { slug: string }) {
-  const { t } = useLanguage();
   const { data: project, isLoading, isError, error } = useProject(slug);
 
   const notFound =
@@ -76,7 +75,7 @@ export function ProjectDetail({ slug }: { slug: string }) {
       <main className={styles.page}>
         <div className={styles.inner}>
           <Link href="/#projects" className={styles.back}>
-            {t("projectDetail.back")}
+            ← Back to projects
           </Link>
 
           {isLoading && (
@@ -89,8 +88,10 @@ export function ProjectDetail({ slug }: { slug: string }) {
 
           {notFound && (
             <div className={styles.message}>
-              <h1 className={styles.title}>{t("projectDetail.notFound")}</h1>
-              <p className={styles.lead}>{t("projectDetail.notFoundLead")}</p>
+              <h1 className={styles.title}>Project not found</h1>
+              <p className={styles.lead}>
+                We couldn&apos;t find a project at this address.
+              </p>
             </div>
           )}
 
@@ -98,7 +99,7 @@ export function ProjectDetail({ slug }: { slug: string }) {
             <p className={styles.message} role="alert">
               {error instanceof Error
                 ? error.message
-                : t("projectDetail.loadError")}
+                : "Could not load this project."}
             </p>
           )}
 
@@ -110,19 +111,10 @@ export function ProjectDetail({ slug }: { slug: string }) {
 }
 
 function ProjectBody({ project }: { project: Project }) {
-  const { t } = useLanguage();
   const imageUrl = resolveMediaUrl(project.image);
   const secondaryUrl = resolveMediaUrl(project.secondary_media);
   const pdfUrl = resolveMediaUrl(project.pdf);
-
-  const caseStudySections: { key: keyof Project; label: string }[] = [
-    { key: "problem", label: t("projectDetail.problem") },
-    { key: "solution", label: t("projectDetail.solution") },
-    { key: "challenge", label: t("projectDetail.challenge") },
-    { key: "result", label: t("projectDetail.result") },
-  ];
-
-  const caseStudy = caseStudySections.filter(
+  const caseStudy = CASE_STUDY_SECTIONS.filter(
     (section) => (project[section.key] as string)?.trim().length > 0,
   );
 
@@ -143,7 +135,7 @@ function ProjectBody({ project }: { project: Project }) {
                 rel="noopener noreferrer"
                 className={styles.linkPrimary}
               >
-                {t("projectDetail.visitProject")}
+                Visit project →
               </a>
             )}
             {project.github_url && (
@@ -153,7 +145,7 @@ function ProjectBody({ project }: { project: Project }) {
                 rel="noopener noreferrer"
                 className={styles.linkSecondary}
               >
-                {t("projectDetail.viewGithub")}
+                View on GitHub
               </a>
             )}
           </div>
@@ -175,7 +167,7 @@ function ProjectBody({ project }: { project: Project }) {
 
       {project.description && (
         <section className={styles.section}>
-          <h2 className={styles.caseLabel}>{t("projectDetail.overview")}</h2>
+          <h2 className={styles.caseLabel}>Overview</h2>
           <p className={styles.body}>{project.description}</p>
         </section>
       )}
@@ -198,12 +190,12 @@ function ProjectBody({ project }: { project: Project }) {
               rel="noopener noreferrer"
               className={styles.pdfLink}
             >
-              {t("projectDetail.viewPdf")}
+              View PDF
             </a>
           ) : isImageUrl(secondaryUrl) ? (
             <ProjectImage
               src={secondaryUrl}
-              alt={`${project.title} — ${t("projectDetail.additionalView")}`}
+              alt={`${project.title} — additional view`}
               fill
               className={styles.secondaryImage}
               sizes="(max-width: 1120px) 100vw, 1120px"
@@ -227,27 +219,22 @@ function ProjectBody({ project }: { project: Project }) {
 
       {pdfUrl && (
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>{t("projectDetail.document")}</h2>
-          <PdfEmbed
-            url={pdfUrl}
-            title={`${project.title} ${t("projectDetail.pdfTitle")}`}
-            previewError={t("projectDetail.pdfPreviewError")}
-            loadingLabel={t("projectDetail.pdfLoading")}
-          />
+          <h2 className={styles.sectionTitle}>Document</h2>
+          <PdfEmbed url={pdfUrl} title={`${project.title} PDF document`} />
           <a
             href={pdfUrl}
             target="_blank"
             rel="noopener noreferrer"
             className={styles.pdfLink}
           >
-            {t("projectDetail.openPdf")}
+            Open PDF →
           </a>
         </section>
       )}
 
       {project.technologies.length > 0 && (
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>{t("projectDetail.stack")}</h2>
+          <h2 className={styles.sectionTitle}>Stack</h2>
           <ul className={styles.stack}>
             {project.technologies.map((tech) => (
               <li key={tech} className={styles.stackItem}>

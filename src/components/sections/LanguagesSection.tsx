@@ -1,20 +1,14 @@
-"use client";
-
-import { usePortfolioData } from "@/hooks/usePortfolioData";
-import { useLanguage } from "@/providers/LanguageProvider";
+import { languages } from "@/data/portfolio";
 import { SectionBlock } from "./SectionBlock";
 import styles from "./LanguagesSection.module.scss";
 
 export function LanguagesSection() {
-  const { t } = useLanguage();
-  const { languages } = usePortfolioData();
-
   return (
     <SectionBlock
       id="languages"
-      eyebrow={t("sections.languagesEyebrow")}
-      title={t("sections.languagesTitle")}
-      description={t("sections.languagesDescription")}
+      eyebrow="Communication"
+      title="Languages"
+      description="Languages I work and collaborate in."
     >
       <ul className={styles.list}>
         {languages.map((language) => (

@@ -6,23 +6,17 @@ import { ProjectImage } from "@/components/ProjectImage/ProjectImage";
 import { resolveMediaUrl } from "@/lib/api";
 import { isImageUrl } from "@/lib/media";
 import { useProjects } from "@/lib/queries/projects";
-import { useLanguage } from "@/providers/LanguageProvider";
 import type { Project } from "@/types/project";
 import { useReveal } from "@/components/reveal/useReveal";
 import reveal from "@/components/reveal/reveal.module.scss";
 import styles from "./ProjectsGrid.module.scss";
 
-function ProjectRow({
-  project,
-  index,
-  viewProjectLabel,
-  viewProjectAria,
-}: {
-  project: Project;
-  index: number;
-  viewProjectLabel: string;
-  viewProjectAria: string;
-}) {
+const CATEGORY_GROUPS: { value: Project["category"]; label: string }[] = [
+  { value: "programming", label: "Programming" },
+  { value: "design", label: "UX/UI & graphic design" },
+];
+
+function ProjectRow({ project, index }: { project: Project; index: number }) {
   const imageUrl = resolveMediaUrl(project.image);
   const description =
     project.short_description || project.description.slice(0, 160);
@@ -50,14 +44,14 @@ function ProjectRow({
           </ul>
         )}
         <Link href={`/projects/${project.slug}`} className={styles.link}>
-          {viewProjectLabel} <span aria-hidden>↗</span>
+          View project <span aria-hidden>↗</span>
         </Link>
       </div>
 
       <Link
         href={`/projects/${project.slug}`}
         className={styles.thumb}
-        aria-label={viewProjectAria}
+        aria-label={`View ${project.title}`}
       >
         {imageUrl && isImageUrl(imageUrl) ? (
           <ProjectImage
@@ -78,36 +72,25 @@ function ProjectRow({
 }
 
 export function FeaturedProjectsList() {
-  const { t } = useLanguage();
   const { data, isLoading, isError, error } = useProjects();
-
-  const categoryGroups = useMemo(
-    () => [
-      { value: "programming" as const, label: t("projects.programming") },
-      { value: "design" as const, label: t("projects.design") },
-    ],
-    [t],
-  );
 
   const groups = useMemo(() => {
     const all = data ?? [];
     const sorted = [...all].sort(
       (a, b) => Number(b.featured) - Number(a.featured),
     );
-    return categoryGroups
-      .map((group) => ({
-        ...group,
-        projects: sorted.filter((project) => project.category === group.value),
-      }))
-      .filter((group) => group.projects.length > 0);
-  }, [data, categoryGroups]);
+    return CATEGORY_GROUPS.map((group) => ({
+      ...group,
+      projects: sorted.filter((project) => project.category === group.value),
+    })).filter((group) => group.projects.length > 0);
+  }, [data]);
 
   if (isLoading) {
     return (
       <div
         className={styles.rows}
         aria-busy="true"
-        aria-label={t("projects.loading")}
+        aria-label="Loading projects"
       >
         {Array.from({ length: 3 }).map((_, i) => (
           <div key={i} className={styles.skeletonRow} />
@@ -119,14 +102,18 @@ export function FeaturedProjectsList() {
   if (isError) {
     return (
       <p className={styles.error} role="alert">
-        {error instanceof Error ? error.message : t("projects.error")}
+        {error instanceof Error
+          ? error.message
+          : "Could not load projects. Is the API running?"}
       </p>
     );
   }
 
   if (groups.length === 0) {
     return (
-      <p className={styles.empty}>{t("projects.empty")}</p>
+      <p className={styles.empty}>
+        No projects yet. Add projects in the Django admin.
+      </p>
     );
   }
 
@@ -137,15 +124,7 @@ export function FeaturedProjectsList() {
           <h3 className={styles.groupLabel}>{group.label}</h3>
           <div className={styles.rows}>
             {group.projects.map((project, i) => (
-              <ProjectRow
-                key={project.id}
-                project={project}
-                index={i}
-                viewProjectLabel={t("projects.viewProject")}
-                viewProjectAria={t("projects.viewProjectAria", {
-                  title: project.title,
-                })}
-              />
+              <ProjectRow key={project.id} project={project} index={i} />
             ))}
           </div>
         </div>
