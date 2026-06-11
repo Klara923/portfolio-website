@@ -1,9 +1,8 @@
-import {
-  education,
-  extraExperience,
-  site,
-  workExperience,
-} from "@/data/portfolio";
+"use client";
+
+import { site } from "@/data/portfolio";
+import { usePortfolioData } from "@/hooks/usePortfolioData";
+import { useLanguage } from "@/providers/LanguageProvider";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SectionBlock } from "@/components/sections/SectionBlock";
 import {
@@ -18,6 +17,9 @@ import { ContactSection } from "@/components/sections/ContactSection";
 import styles from "./PortfolioPage.module.scss";
 
 export function PortfolioPage() {
+  const { t } = useLanguage();
+  const { education, workExperience, extraExperience } = usePortfolioData();
+
   return (
     <div className={styles.page}>
       <SiteHeader />
@@ -30,39 +32,47 @@ export function PortfolioPage() {
         <div className={styles.heroInner}>
           <div className={styles.heroLeft}>
             <h1 id="hero-heading" className={styles.heroTitle}>
-              Hello, I&apos;m
+              {t("hero.greeting")}
               <br />
               {site.name}.
             </h1>
           </div>
           <div className={styles.heroDesc}>
             <p>
-              <strong>Full-stack Developer</strong> with{" "}
-              <strong>nearly 3 years of commercial experience</strong> building{" "}
-              <strong>AI-powered legal-tech</strong> products. My primary stack
-              includes <strong>React, TypeScript, and Django</strong>
-              <a href="#skills" className={styles.ref} aria-label="See skills">
+              <strong>{t("hero.role")}</strong> {t("hero.with")}{" "}
+              <strong>{t("hero.experience")}</strong> {t("hero.building")}{" "}
+              <strong>{t("hero.domain")}</strong> {t("hero.products")}{" "}
+              {t("hero.stackIntro")}{" "}
+              <strong>{t("hero.stack")}</strong>
+              <a
+                href="#skills"
+                className={styles.ref}
+                aria-label={t("nav.seeSkills")}
+              >
                 [1]
               </a>
-              , with a strong focus on frontend development.
+              {t("hero.frontendFocus")}
             </p>
             <p>
-              I combine technical skills with a background in Graphic Design and
-              Software Development, having studied for{" "}
-              <strong>over 4 years in Sweden</strong>, giving me a strong
-              foundation in <strong>UX/UI design</strong> and user-centered
-              thinking.
+              {t("hero.paragraph2Intro")}{" "}
+              <strong>{t("hero.paragraph2Fields")}</strong>
+              {t("hero.paragraph2Studied")}{" "}
+              <strong>{t("hero.paragraph2Duration")}</strong>
+              {t("hero.paragraph2Foundation")}{" "}
+              <strong>{t("hero.paragraph2Ux")}</strong>{" "}
+              {t("hero.paragraph2Thinking")}
             </p>
             <p>
-              I am currently based in Poland and open to{" "}
-              <strong>remote, hybrid, and international opportunities</strong>.
+              {t("hero.paragraph3Intro")}{" "}
+              <strong>{t("hero.paragraph3Opportunities")}</strong>
+              {t("hero.paragraph3End")}
             </p>
           </div>
         </div>
       </section>
 
       <main>
-        <SectionBlock id="experience" title="Work experience">
+        <SectionBlock id="experience" title={t("sections.workExperience")}>
           <div className={styles.stack}>
             {workExperience.map((entry) => (
               <ExperienceEntryRow key={entry.id} entry={entry} />
@@ -70,10 +80,13 @@ export function PortfolioPage() {
           </div>
         </SectionBlock>
 
-        <SectionBlock title="Education">
+        <SectionBlock title={t("sections.education")}>
           <div className={styles.stack}>
             <EducationEntryRow entry={education[0]} />
-            <CoursesEntryRow entries={education.slice(1)} />
+            <CoursesEntryRow
+              entries={education.slice(1)}
+              label={t("sections.courses")}
+            />
           </div>
         </SectionBlock>
 
@@ -81,7 +94,10 @@ export function PortfolioPage() {
 
         <ProjectsGrid />
 
-        <SectionBlock eyebrow="Beyond work" title="Extra experience">
+        <SectionBlock
+          eyebrow={t("sections.beyondWork")}
+          title={t("sections.extraExperience")}
+        >
           <div className={styles.stack}>
             {extraExperience.map((entry) => (
               <ExperienceEntryRow key={entry.id} entry={entry} />
@@ -100,16 +116,16 @@ export function PortfolioPage() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            GitHub
+            {t("nav.github")}
           </a>
           <a
             href={site.contact.linkedin}
             target="_blank"
             rel="noopener noreferrer"
           >
-            LinkedIn
+            {t("nav.linkedin")}
           </a>
-          <a href={`mailto:${site.contact.email}`}>Email</a>
+          <a href={`mailto:${site.contact.email}`}>{t("nav.email")}</a>
         </div>
       </footer>
     </div>
