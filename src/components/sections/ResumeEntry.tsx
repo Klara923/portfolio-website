@@ -21,14 +21,20 @@ export function EducationEntryRow({ entry }: { entry: EducationEntry }) {
   );
 }
 
-export function CoursesEntryRow({ entries }: { entries: EducationEntry[] }) {
+export function CoursesEntryRow({
+  entries,
+  label,
+}: {
+  entries: EducationEntry[];
+  label: string;
+}) {
   const { ref, revealed } = useReveal<HTMLElement>();
   return (
     <article
       ref={ref}
       className={`${styles.entry} ${reveal.base} ${revealed ? reveal.in : ""}`}
     >
-      <h3 className={styles.heading}>Courses</h3>
+      <h3 className={styles.heading}>{label}</h3>
       <ul className={styles.courseList}>
         {entries.map((entry) => (
           <li key={entry.id} className={styles.course}>

@@ -1,25 +1,33 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { site } from "@/data/portfolio";
+import { useLanguage } from "@/providers/LanguageProvider";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import styles from "./SiteHeader.module.scss";
 
-const navItems = [
-  { label: "Experience", href: "/#experience" },
-  { label: "Projects", href: "/#projects" },
-  { label: "Contact", href: "/#contact" },
-];
-
-const socialItems = [
-  { label: "Email", href: `mailto:${site.contact.email}` },
-  { label: "GitHub", href: site.contact.github },
-  { label: "LinkedIn", href: site.contact.linkedin },
-];
-
 export function SiteHeader() {
+  const { t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const navItems = useMemo(
+    () => [
+      { label: t("nav.experience"), href: "/#experience" },
+      { label: t("nav.projects"), href: "/#projects" },
+      { label: t("nav.contact"), href: "/#contact" },
+    ],
+    [t],
+  );
+
+  const socialItems = useMemo(
+    () => [
+      { label: t("nav.email"), href: `mailto:${site.contact.email}` },
+      { label: t("nav.github"), href: site.contact.github },
+      { label: t("nav.linkedin"), href: site.contact.linkedin },
+    ],
+    [t],
+  );
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -44,7 +52,7 @@ export function SiteHeader() {
         <button
           type="button"
           className={styles.menuButton}
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-label={menuOpen ? t("nav.closeMenu") : t("nav.openMenu")}
           aria-expanded={menuOpen}
           aria-controls="primary-nav"
           onClick={() => setMenuOpen((open) => !open)}
@@ -58,7 +66,7 @@ export function SiteHeader() {
         <nav
           id="primary-nav"
           className={`${styles.nav} ${menuOpen ? styles.navOpen : ""}`}
-          aria-label="Main"
+          aria-label={t("nav.main")}
         >
           <div className={styles.navGroup}>
             {navItems.map((item) => (

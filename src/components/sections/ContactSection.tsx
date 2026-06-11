@@ -1,7 +1,11 @@
+"use client";
+
 import { site } from "@/data/portfolio";
+import { useLanguage } from "@/providers/LanguageProvider";
 import styles from "./ContactSection.module.scss";
 
 export function ContactSection() {
+  const { t } = useLanguage();
   const { contact } = site;
 
   return (
@@ -13,7 +17,7 @@ export function ContactSection() {
       <div className={styles.container}>
         <a href={`mailto:${contact.email}`} className={styles.lead}>
           <h2 id="contact-heading" className={styles.title}>
-            Don’t hesitate to contact me.
+            {t("sections.contactTitle")}
           </h2>
         </a>
 
@@ -28,7 +32,7 @@ export function ContactSection() {
               rel="noopener noreferrer"
               className={styles.link}
             >
-              GitHub
+              {t("nav.github")}
             </a>
             <a
               href={contact.linkedin}
@@ -36,7 +40,7 @@ export function ContactSection() {
               rel="noopener noreferrer"
               className={styles.link}
             >
-              LinkedIn
+              {t("nav.linkedin")}
             </a>
           </div>
         </div>
