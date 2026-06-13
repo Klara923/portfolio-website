@@ -39,33 +39,22 @@ export function PortfolioPage() {
           </div>
           <div className={styles.heroDesc}>
             <p>
-              <strong>{t("hero.role")}</strong> {t("hero.with")}{" "}
-              <strong>{t("hero.experience")}</strong> {t("hero.building")}{" "}
-              <strong>{t("hero.domain")}</strong>
-              {t("hero.products")} {t("hero.stackIntro")}{" "}
-              <strong>{t("hero.stack")}</strong>
-              <a
-                href="#skills"
-                className={styles.ref}
-                aria-label={t("nav.seeSkills")}
-              >
-                [1]
-              </a>
-              {t("hero.frontendFocus")}
+              <strong>{t("hero.p1.role")}</strong> {t("hero.p1.with")}{" "}
+              <strong>{t("hero.p1.experience")}</strong> {t("hero.p1.building")}{" "}
+              <strong>{t("hero.p1.domain")}</strong>
+              {t("hero.p1.products")} {t("hero.p1.stackLead")}{" "}
+              <strong>{t("hero.p1.stack")}</strong>
+              {t("hero.p1.frontend")}
             </p>
             <p>
-              {t("hero.paragraph2Intro")}{" "}
-              <strong>{t("hero.paragraph2Fields")}</strong>
-              {t("hero.paragraph2Studied")}{" "}
-              <strong>{t("hero.paragraph2Duration")}</strong>
-              {t("hero.paragraph2Foundation")}{" "}
-              <strong>{t("hero.paragraph2Ux")}</strong>{" "}
-              {t("hero.paragraph2Thinking")}
+              {t("hero.p2.intro")} <strong>{t("hero.p2.design")}</strong>{" "}
+              {t("hero.p2.emDash")} <strong>{t("hero.p2.studies")}</strong>
+              {t("hero.p2.foundation")} <strong>{t("hero.p2.ux")}</strong>{" "}
+              {t("hero.p2.outro")}
             </p>
             <p>
-              {t("hero.paragraph3Intro")}{" "}
-              <strong>{t("hero.paragraph3Opportunities")}</strong>
-              {t("hero.paragraph3End")}
+              {t("hero.p3.intro")} <strong>{t("hero.p3.opportunities")}</strong>
+              {t("hero.p3.end")}
             </p>
           </div>
         </div>
@@ -94,10 +83,7 @@ export function PortfolioPage() {
 
         <ProjectsGrid />
 
-        <SectionBlock
-          eyebrow={t("sections.beyondWork")}
-          title={t("sections.extraExperience")}
-        >
+        <SectionBlock title={t("sections.extraExperience")}>
           <div className={styles.stack}>
             {extraExperience.map((entry) => (
               <ExperienceEntryRow key={entry.id} entry={entry} />

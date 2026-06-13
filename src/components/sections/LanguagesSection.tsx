@@ -10,12 +10,7 @@ export function LanguagesSection() {
   const { languages } = usePortfolioData();
 
   return (
-    <SectionBlock
-      id="languages"
-      eyebrow={t("sections.languagesEyebrow")}
-      title={t("sections.languagesTitle")}
-      description={t("sections.languagesDescription")}
-    >
+    <SectionBlock id="languages" title={t("sections.languagesTitle")}>
       <ul className={styles.list}>
         {languages.map((language) => (
           <li key={language.id} className={styles.item}>

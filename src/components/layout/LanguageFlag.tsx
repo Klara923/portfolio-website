@@ -15,15 +15,12 @@ export function LanguageFlag({ code }: LanguageFlagProps) {
   }
 
   return (
-    <svg className={styles.flag} viewBox="0 0 20 14" aria-hidden>
-      <rect width="20" height="14" fill="#b22234" />
-      <rect y="1.08" width="20" height="1.08" fill="#ffffff" />
-      <rect y="3.23" width="20" height="1.08" fill="#ffffff" />
-      <rect y="5.38" width="20" height="1.08" fill="#ffffff" />
-      <rect y="7.54" width="20" height="1.08" fill="#ffffff" />
-      <rect y="9.69" width="20" height="1.08" fill="#ffffff" />
-      <rect y="11.85" width="20" height="1.08" fill="#ffffff" />
-      <rect width="8" height="7.54" fill="#3c3b6e" />
+    <svg className={styles.flag} viewBox="0 0 60 30" aria-hidden>
+      <rect width="60" height="30" fill="#012169" />
+      <path d="M0,0 L60,30 M60,0 L0,30" stroke="#ffffff" strokeWidth="5" />
+      <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" strokeWidth="2" />
+      <path d="M30,0 v30 M0,15 h60" stroke="#ffffff" strokeWidth="8" />
+      <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" strokeWidth="4" />
     </svg>
   );
 }
