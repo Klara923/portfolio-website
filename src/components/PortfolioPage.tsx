@@ -41,9 +41,8 @@ export function PortfolioPage() {
             <p>
               <strong>{t("hero.p1.role")}</strong> {t("hero.p1.with")}{" "}
               <strong>{t("hero.p1.experience")}</strong> {t("hero.p1.building")}{" "}
-              <strong>{t("hero.p1.domain")}</strong>
-              {t("hero.p1.products")} {t("hero.p1.stackLead")}{" "}
-              <strong>{t("hero.p1.stack")}</strong>
+              <strong>{t("hero.p1.domain")}</strong> {t("hero.p1.products")}{" "}
+              {t("hero.p1.stackLead")} <strong>{t("hero.p1.stack")}</strong>
               {t("hero.p1.frontend")}
             </p>
             <p>

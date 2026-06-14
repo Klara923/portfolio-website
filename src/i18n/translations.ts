@@ -19,7 +19,7 @@ const en = {
     p1: {
       role: "Full-stack Developer",
       with: "with",
-      experience: "nearly 3 years of commercial experience",
+      experience: "nearly 3 years of experience",
       building: "building",
       domain: "AI-powered legal-tech",
       products: "products.",
@@ -151,7 +151,7 @@ const pl = {
     p1: {
       role: "Full-stack Developer",
       with: "z",
-      experience: "niemal 3-letnim doświadczeniem komercyjnym",
+      experience: "niemal 3-letnim doświadczeniem",
       building: "w tworzeniu",
       domain: "produktów legal-tech opartych na AI",
       products: ".",
