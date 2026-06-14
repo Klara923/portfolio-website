@@ -37,7 +37,7 @@ export async function getSiteConfig(): Promise<SiteConfig> {
 
 export async function getProjects(language?: string): Promise<Project[]> {
   const res = await fetch(
-    withLanguage(`${getApiBaseUrl()}/api/projects/`, language),
+    withLanguage(`${getApiBaseUrl()}/projects/`, language),
   );
 
   if (!res.ok) {
