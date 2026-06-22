@@ -1,7 +1,10 @@
 import type { Project } from "@/types/project";
 import type { SiteConfig } from "@/types/site";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://127.0.0.1:8000";
+const API_URL =
+  process.env.NEXT_PUBLIC_API_URL ?? "http://127.0.0.1:8000/api";
+
+export const PROJECTS_REVALIDATE_SECONDS = 3600;
 
 function getApiBaseUrl(): string {
   return API_URL.replace(/\/$/, "");
@@ -38,6 +41,7 @@ export async function getSiteConfig(): Promise<SiteConfig> {
 export async function getProjects(language?: string): Promise<Project[]> {
   const res = await fetch(
     withLanguage(`${getApiBaseUrl()}/projects/`, language),
+    { next: { revalidate: PROJECTS_REVALIDATE_SECONDS } },
   );
 
   if (!res.ok) {
@@ -56,6 +60,7 @@ export async function getProject(
       `${getApiBaseUrl()}/projects/${encodeURIComponent(slug)}/`,
       language,
     ),
+    { next: { revalidate: PROJECTS_REVALIDATE_SECONDS } },
   );
 
   if (res.status === 404) {

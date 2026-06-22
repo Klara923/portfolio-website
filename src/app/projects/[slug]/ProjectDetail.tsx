@@ -63,9 +63,17 @@ function PdfEmbed({
   return <iframe src={blobUrl} className={styles.pdfViewer} title={title} />;
 }
 
-export function ProjectDetail({ slug }: { slug: string }) {
+type ProjectDetailProps = {
+  slug: string;
+  initialProject?: Project;
+};
+
+export function ProjectDetail({ slug, initialProject }: ProjectDetailProps) {
   const { t } = useLanguage();
-  const { data: project, isLoading, isError, error } = useProject(slug);
+  const { data: project, isLoading, isError, error } = useProject(
+    slug,
+    initialProject,
+  );
 
   const notFound =
     isError && error instanceof Error && error.message === "not-found";
@@ -79,7 +87,7 @@ export function ProjectDetail({ slug }: { slug: string }) {
             {t("projectDetail.back")}
           </Link>
 
-          {isLoading && (
+          {isLoading && !project && (
             <div className={styles.loading} aria-busy="true">
               <div className={styles.skeletonHero} />
               <div className={styles.skeletonLine} />
