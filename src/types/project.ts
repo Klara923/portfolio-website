@@ -1,8 +1,8 @@
 export type Project = {
   id: number;
-  title: string;
   slug: string;
   category: "programming" | "design";
+  title: string;
   description: string;
   short_description: string;
   problem: string;
@@ -17,6 +17,4 @@ export type Project = {
   github_url: string;
   featured: boolean;
   display_order: number;
-  created_at: string;
-  updated_at: string;
 };

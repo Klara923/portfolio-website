@@ -2,7 +2,7 @@
 
 import { site } from "@/data/portfolio";
 import { useLanguage } from "@/providers/LanguageProvider";
-import styles from "./ContactSection.module.scss";
+import styles from "@/styles/sections.module.scss";
 
 export function ContactSection() {
   const { t } = useLanguage();
@@ -11,26 +11,26 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className={styles.section}
+      className={styles.contactSection}
       aria-labelledby="contact-heading"
     >
-      <div className={styles.container}>
-        <a href={`mailto:${contact.email}`} className={styles.lead}>
-          <h2 id="contact-heading" className={styles.title}>
+      <div className={styles.contactContainer}>
+        <a href={`mailto:${contact.email}`} className={styles.contactLead}>
+          <h2 id="contact-heading" className={styles.contactTitle}>
             {t("sections.contactTitle")}
           </h2>
         </a>
 
-        <div className={styles.details}>
-          <a href={`mailto:${contact.email}`} className={styles.email}>
+        <div className={styles.contactDetails}>
+          <a href={`mailto:${contact.email}`} className={styles.contactEmail}>
             {contact.email}
           </a>
-          <div className={styles.links}>
+          <div className={styles.contactLinks}>
             <a
               href={contact.github}
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.link}
+              className={styles.contactLink}
             >
               {t("nav.github")}
             </a>
@@ -38,7 +38,7 @@ export function ContactSection() {
               href={contact.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.link}
+              className={styles.contactLink}
             >
               {t("nav.linkedin")}
             </a>

@@ -1,0 +1,361 @@
+.homePage {
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.homeHero {
+  padding: clamp(8rem, 18vh, 12rem) 0 clamp(3rem, 8vw, 5rem);
+}
+
+.homeHeroInner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 5vw, 2.5rem);
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  gap: clamp(1rem, 6vw, 1rem);
+  align-items: start;
+}
+
+.homeHeroLeft {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 6vw, 4rem);
+}
+
+.homeHeroTitle {
+  font-size: var(--text-display);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: var(--leading-tight);
+  color: var(--foreground);
+}
+
+.homeHeroDesc {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 60ch;
+  margin-top: clamp(0.5rem, 2vw, 1.25rem);
+
+  p {
+    font-size: var(--text-lead);
+    font-weight: 400;
+    line-height: var(--leading-snug);
+    color: var(--muted);
+  }
+
+  strong {
+    font-weight: 600;
+    color: var(--foreground);
+  }
+}
+
+.homeStack {
+  display: flex;
+  flex-direction: column;
+}
+
+.homeFooter {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(3rem, 8vw, 5rem) clamp(1.25rem, 5vw, 2.5rem);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.homeFooterLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+
+  a {
+    font-size: var(--text-small);
+    font-weight: 500;
+    color: var(--foreground);
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
+}
+
+@media (max-width: 760px) {
+  .homeHeroInner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .homeHeroDesc {
+    margin-top: 0;
+  }
+}
+
+// Project detail page
+.detailPage {
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--foreground);
+  padding: clamp(7rem, 12vw, 9rem) clamp(1.25rem, 5vw, 2.5rem)
+    clamp(4rem, 10vw, 6rem);
+}
+
+.detailInner {
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+.detailBack {
+  display: inline-block;
+  margin-bottom: 2.5rem;
+  font-size: var(--text-small);
+  font-weight: 500;
+  color: var(--muted);
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--accent);
+  }
+}
+
+.detailHeader {
+  margin-bottom: 2.5rem;
+}
+
+.detailTitle {
+  font-size: var(--text-display);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: var(--leading-tight);
+  color: var(--foreground);
+}
+
+.detailLead {
+  margin-top: 1.25rem;
+  font-size: var(--text-lead);
+  line-height: var(--leading-snug);
+  color: var(--muted);
+  max-width: 50ch;
+}
+
+.detailLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.detailLinkPrimary {
+  font-size: var(--text-body);
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0;
+  background: var(--accent);
+  color: #fff;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(99, 102, 241, 0.3);
+  }
+}
+
+.detailLinkSecondary {
+  font-size: var(--text-body);
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0;
+  border: 1px solid var(--line-strong);
+  color: var(--foreground);
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+
+  &:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+}
+
+.detailCover {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  margin-bottom: 3rem;
+  background: var(--placeholder);
+}
+
+.detailCoverImage {
+  object-fit: cover;
+}
+
+.detailSecondaryMedia {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  margin-bottom: 3rem;
+  background: #111;
+}
+
+.detailSecondaryImage {
+  object-fit: cover;
+}
+
+.detailSecondaryVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.detailSection {
+  margin-bottom: 2.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.detailPdfViewer {
+  display: block;
+  width: 100%;
+  height: clamp(28rem, 75vh, 50rem);
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.detailPdfLoading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: clamp(28rem, 75vh, 50rem);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--muted);
+  font-size: var(--text-body);
+}
+
+.detailPdfLink {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: var(--text-body);
+  font-weight: 500;
+  padding: 0.6rem 1.25rem;
+  border-radius: 0;
+  border: 1px solid var(--line-strong);
+  color: var(--foreground);
+  transition: border-color 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+}
+
+.detailSectionTitle {
+  font-size: var(--text-caption);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.detailStack {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.detailStackItem {
+  font-size: var(--text-body);
+  font-weight: 500;
+  color: var(--foreground);
+  line-height: var(--leading-snug);
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--line-strong);
+  background: rgba(20, 20, 20, 0.04);
+}
+
+.detailBody {
+  font-size: var(--text-body);
+  line-height: var(--leading-normal);
+  color: var(--muted);
+  max-width: 72ch;
+  white-space: pre-line;
+}
+
+.detailCaseStudy {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.detailCaseBlock {
+  margin-top: 0.25rem;
+}
+
+.detailCaseLabel {
+  font-size: var(--text-h3);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+
+.detailLoading {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.detailSkeletonHero {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--surface);
+  animation: detailPulse 1.4s ease-in-out infinite;
+}
+
+.detailSkeletonLine {
+  height: 1rem;
+  border-radius: 6px;
+  background: var(--surface);
+  animation: detailPulse 1.4s ease-in-out infinite;
+
+  &:nth-child(2) {
+    width: 70%;
+  }
+}
+
+.detailMessage {
+  padding: 2rem 0;
+  color: var(--muted);
+}
+
+.detailCaseSection {
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes detailPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}

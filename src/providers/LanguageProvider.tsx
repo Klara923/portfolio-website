@@ -9,8 +9,8 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { siteConfig } from "@/data/siteConfig";
 import { getTranslation, type Locale } from "@/i18n";
-import { getSiteConfig } from "@/lib/api";
 import type { LanguageOption } from "@/types/site";
 
 const STORAGE_KEY = "portfolio-language";
@@ -38,42 +38,25 @@ type LanguageProviderProps = {
 };
 
 export function LanguageProvider({ children }: LanguageProviderProps) {
-  const [language, setLanguageState] = useState("en");
-  const [languages, setLanguages] = useState<LanguageOption[]>([]);
-  const [switcherEnabled, setSwitcherEnabled] = useState(false);
+  const [language, setLanguageState] = useState(siteConfig.languages.default);
   const [ready, setReady] = useState(false);
+
+  const languages = siteConfig.languages.available;
+  const switcherEnabled = siteConfig.feature_flags.language_switcher;
 
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
+    const allowed = new Set(languages.map((item) => item.code));
+    const fallback = siteConfig.languages.default;
 
-    getSiteConfig()
-      .then((config) => {
-        setLanguages(config.languages.available);
-        setSwitcherEnabled(config.feature_flags.language_switcher);
+    if (stored && allowed.has(stored)) {
+      setLanguageState(stored);
+    } else {
+      setLanguageState(fallback);
+    }
 
-        const allowed = new Set(
-          config.languages.available.map((item) => item.code),
-        );
-        const fallback = config.languages.default;
-
-        if (stored && allowed.has(stored)) {
-          setLanguageState(stored);
-        } else {
-          setLanguageState(fallback);
-        }
-      })
-      .catch(() => {
-        setLanguages([
-          { code: "en", label: "English" },
-          { code: "pl", label: "Polish" },
-        ]);
-        setSwitcherEnabled(true);
-        if (stored === "en" || stored === "pl") {
-          setLanguageState(stored);
-        }
-      })
-      .finally(() => setReady(true));
-  }, []);
+    setReady(true);
+  }, [languages]);
 
   useEffect(() => {
     document.documentElement.lang = language;

@@ -4,12 +4,12 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { ProjectImage } from "@/components/ProjectImage/ProjectImage";
-import { resolveMediaUrl } from "@/lib/api";
+import { useProjectData } from "@/hooks/useProjectsData";
+import { resolveMediaUrl } from "@/lib/projects";
 import { isImageUrl, isPdfUrl, isVideoUrl } from "@/lib/media";
-import { useProject } from "@/lib/queries/projects";
 import { useLanguage } from "@/providers/LanguageProvider";
 import type { Project } from "@/types/project";
-import styles from "./ProjectDetail.module.scss";
+import styles from "@/styles/pages.module.scss";
 
 function PdfEmbed({
   url,
@@ -53,14 +53,20 @@ function PdfEmbed({
   }, [url]);
 
   if (failed) {
-    return <p className={styles.body}>{previewError}</p>;
+    return <p className={styles.detailBody}>{previewError}</p>;
   }
 
   if (!blobUrl) {
-    return <div className={styles.pdfLoading}>{loadingLabel}</div>;
+    return <div className={styles.detailPdfLoading}>{loadingLabel}</div>;
   }
 
-  return <iframe src={blobUrl} className={styles.pdfViewer} title={title} />;
+  return (
+    <iframe
+      src={blobUrl}
+      className={styles.detailPdfViewer}
+      title={title}
+    />
+  );
 }
 
 type ProjectDetailProps = {
@@ -70,44 +76,27 @@ type ProjectDetailProps = {
 
 export function ProjectDetail({ slug, initialProject }: ProjectDetailProps) {
   const { t } = useLanguage();
-  const { data: project, isLoading, isError, error } = useProject(
-    slug,
-    initialProject,
-  );
-
-  const notFound =
-    isError && error instanceof Error && error.message === "not-found";
+  const localizedProject = useProjectData(slug);
+  const project = localizedProject ?? initialProject;
 
   return (
     <>
       <SiteHeader />
-      <main className={styles.page}>
-        <div className={styles.inner}>
-          <Link href="/#projects" className={styles.back}>
+      <main className={styles.detailPage}>
+        <div className={styles.detailInner}>
+          <Link href="/#projects" className={styles.detailBack}>
             {t("projectDetail.back")}
           </Link>
 
-          {isLoading && !project && (
-            <div className={styles.loading} aria-busy="true">
-              <div className={styles.skeletonHero} />
-              <div className={styles.skeletonLine} />
-              <div className={styles.skeletonLine} />
+          {!project && (
+            <div className={styles.detailMessage}>
+              <h1 className={styles.detailTitle}>
+                {t("projectDetail.notFound")}
+              </h1>
+              <p className={styles.detailLead}>
+                {t("projectDetail.notFoundLead")}
+              </p>
             </div>
-          )}
-
-          {notFound && (
-            <div className={styles.message}>
-              <h1 className={styles.title}>{t("projectDetail.notFound")}</h1>
-              <p className={styles.lead}>{t("projectDetail.notFoundLead")}</p>
-            </div>
-          )}
-
-          {isError && !notFound && (
-            <p className={styles.message} role="alert">
-              {error instanceof Error
-                ? error.message
-                : t("projectDetail.loadError")}
-            </p>
           )}
 
           {project && <ProjectBody project={project} />}
@@ -136,20 +125,20 @@ function ProjectBody({ project }: { project: Project }) {
 
   return (
     <article>
-      <header className={styles.header}>
-        <h1 className={styles.title}>{project.title}</h1>
+      <header className={styles.detailHeader}>
+        <h1 className={styles.detailTitle}>{project.title}</h1>
         {project.short_description && (
-          <p className={styles.lead}>{project.short_description}</p>
+          <p className={styles.detailLead}>{project.short_description}</p>
         )}
 
         {(project.project_url || project.github_url) && (
-          <div className={styles.links}>
+          <div className={styles.detailLinks}>
             {project.project_url && (
               <a
                 href={project.project_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={styles.linkPrimary}
+                className={styles.detailLinkPrimary}
               >
                 {t("projectDetail.visitProject")}
               </a>
@@ -159,7 +148,7 @@ function ProjectBody({ project }: { project: Project }) {
                 href={project.github_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={styles.linkSecondary}
+                className={styles.detailLinkSecondary}
               >
                 {t("projectDetail.viewGithub")}
               </a>
@@ -169,12 +158,12 @@ function ProjectBody({ project }: { project: Project }) {
       </header>
 
       {imageUrl && isImageUrl(imageUrl) && (
-        <div className={styles.cover}>
+        <div className={styles.detailCover}>
           <ProjectImage
             src={imageUrl}
             alt={project.title}
             fill
-            className={styles.coverImage}
+            className={styles.detailCoverImage}
             sizes="(max-width: 1120px) 100vw, 1120px"
             priority
           />
@@ -182,17 +171,17 @@ function ProjectBody({ project }: { project: Project }) {
       )}
 
       {project.description && (
-        <section className={styles.section}>
-          <h2 className={styles.caseLabel}>{t("projectDetail.overview")}</h2>
-          <p className={styles.body}>{project.description}</p>
+        <section className={styles.detailSection}>
+          <h2 className={styles.detailCaseLabel}>{t("projectDetail.overview")}</h2>
+          <p className={styles.detailBody}>{project.description}</p>
         </section>
       )}
 
       {secondaryUrl && (
-        <div className={styles.secondaryMedia}>
+        <div className={styles.detailSecondaryMedia}>
           {isVideoUrl(secondaryUrl) ? (
             <video
-              className={styles.secondaryVideo}
+              className={styles.detailSecondaryVideo}
               src={secondaryUrl}
               controls
               loop
@@ -204,7 +193,7 @@ function ProjectBody({ project }: { project: Project }) {
               href={secondaryUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.pdfLink}
+              className={styles.detailPdfLink}
             >
               {t("projectDetail.viewPdf")}
             </a>
@@ -213,7 +202,7 @@ function ProjectBody({ project }: { project: Project }) {
               src={secondaryUrl}
               alt={`${project.title} — ${t("projectDetail.additionalView")}`}
               fill
-              className={styles.secondaryImage}
+              className={styles.detailSecondaryImage}
               sizes="(max-width: 1120px) 100vw, 1120px"
             />
           ) : null}
@@ -221,12 +210,14 @@ function ProjectBody({ project }: { project: Project }) {
       )}
 
       {caseStudy.length > 0 && (
-        <div className={styles.caseStudy}>
+        <div className={styles.detailCaseStudy}>
           {caseStudy.map((section) => (
-            <section key={section.key} className={styles.caseSection}>
-              <h2 className={styles.caseLabel}>{section.label}</h2>
-              <div className={styles.caseBlock}>
-                <p className={styles.body}>{project[section.key] as string}</p>
+            <section key={section.key} className={styles.detailCaseSection}>
+              <h2 className={styles.detailCaseLabel}>{section.label}</h2>
+              <div className={styles.detailCaseBlock}>
+                <p className={styles.detailBody}>
+                  {project[section.key] as string}
+                </p>
               </div>
             </section>
           ))}
@@ -234,8 +225,10 @@ function ProjectBody({ project }: { project: Project }) {
       )}
 
       {pdfUrl && (
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>{t("projectDetail.document")}</h2>
+        <section className={styles.detailSection}>
+          <h2 className={styles.detailSectionTitle}>
+            {t("projectDetail.document")}
+          </h2>
           <PdfEmbed
             url={pdfUrl}
             title={`${project.title} ${t("projectDetail.pdfTitle")}`}
@@ -246,7 +239,7 @@ function ProjectBody({ project }: { project: Project }) {
             href={pdfUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className={styles.pdfLink}
+            className={styles.detailPdfLink}
           >
             {t("projectDetail.openPdf")}
           </a>
@@ -254,11 +247,13 @@ function ProjectBody({ project }: { project: Project }) {
       )}
 
       {project.technologies.length > 0 && (
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>{t("projectDetail.stack")}</h2>
-          <ul className={styles.stack}>
+        <section className={styles.detailSection}>
+          <h2 className={styles.detailSectionTitle}>
+            {t("projectDetail.stack")}
+          </h2>
+          <ul className={styles.detailStack}>
             {project.technologies.map((tech) => (
-              <li key={tech} className={styles.stackItem}>
+              <li key={tech} className={styles.detailStackItem}>
                 {tech}
               </li>
             ))}

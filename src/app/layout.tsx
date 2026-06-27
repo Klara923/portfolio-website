@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { LanguageProvider } from "@/providers/LanguageProvider";
-import { QueryProvider } from "@/providers/QueryProvider";
 import "./globals.scss";
 
 const geistSans = Geist({
@@ -11,7 +10,7 @@ const geistSans = Geist({
 
 export const metadata: Metadata = {
   title: "Portfolio",
-  description: "Personal portfolio powered by Next.js and Django",
+  description: "Personal portfolio",
 };
 
 export default function RootLayout({
@@ -22,9 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={geistSans.variable}>
       <body>
-        <LanguageProvider>
-          <QueryProvider>{children}</QueryProvider>
-        </LanguageProvider>
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );

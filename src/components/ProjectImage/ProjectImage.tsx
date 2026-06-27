@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import styles from "./ProjectImage.module.scss";
+import styles from "@/styles/shared.module.scss";
 
 type ProjectImageProps = {
   src: string;
@@ -22,7 +22,7 @@ export function ProjectImage({
   priority = false,
 }: ProjectImageProps) {
   const [useFallback, setUseFallback] = useState(false);
-  const imageClassName = [className, fill ? styles.fill : ""]
+  const imageClassName = [className, fill ? styles.imageFill : ""]
     .filter(Boolean)
     .join(" ");
 

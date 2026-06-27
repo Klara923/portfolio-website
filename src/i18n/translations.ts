@@ -64,9 +64,7 @@ const en = {
     design: "UX/UI & graphic design",
     viewProject: "View project",
     viewProjectAria: "View {title}",
-    loading: "Loading projects",
-    error: "Could not load projects. Is the API running?",
-    empty: "No projects yet. Add projects in the Django admin.",
+    empty: "No projects yet.",
   },
   projectDetail: {
     back: "← Back to projects",
@@ -196,9 +194,7 @@ const pl = {
     design: "UX/UI i grafika",
     viewProject: "Zobacz projekt",
     viewProjectAria: "Zobacz projekt {title}",
-    loading: "Ładowanie projektów",
-    error: "Nie udało się załadować projektów. Sprawdź, czy API działa.",
-    empty: "Brak projektów. Dodaj je w panelu Django admin.",
+    empty: "Brak projektów.",
   },
   projectDetail: {
     back: "← Wróć do projektów",

@@ -3,7 +3,7 @@
 import { usePortfolioData } from "@/hooks/usePortfolioData";
 import { useLanguage } from "@/providers/LanguageProvider";
 import { SectionBlock } from "./SectionBlock";
-import styles from "./SkillsSection.module.scss";
+import styles from "@/styles/sections.module.scss";
 
 export function SkillsSection() {
   const { t } = useLanguage();
@@ -15,15 +15,15 @@ export function SkillsSection() {
       title={t("sections.skillsTools")}
       variant="elevated"
     >
-      <div className={styles.groups}>
+      <div className={styles.skillsGroups}>
         {skillCategories.map((category) => (
-          <div key={category.id} className={styles.group}>
-            <h3 className={styles.groupLabel}>{category.label}</h3>
-            <ul className={styles.list}>
+          <div key={category.id}>
+            <h3 className={styles.skillsGroupLabel}>{category.label}</h3>
+            <ul className={styles.skillsList}>
               {category.skills.map((skill) => (
                 <li
                   key={skill}
-                  className={`${styles.item} ${styles[category.id]}`}
+                  className={`${styles.skillsItem} ${styles[category.id]}`}
                 >
                   {skill}
                 </li>

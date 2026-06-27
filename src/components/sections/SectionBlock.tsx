@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import styles from "./SectionBlock.module.scss";
+import styles from "@/styles/sections.module.scss";
 
 type SectionBlockProps = {
   id?: string;
@@ -21,18 +21,20 @@ export function SectionBlock({
   return (
     <section
       id={id}
-      className={`${styles.section} ${variant === "elevated" ? styles.elevated : ""}`}
+      className={`${styles.blockSection} ${variant === "elevated" ? styles.blockElevated : ""}`}
       aria-labelledby={id ? `${id}-heading` : undefined}
     >
-      <div className={styles.container}>
-        <header className={styles.header}>
-          {eyebrow && <p className={styles.eyebrow}>{eyebrow}</p>}
-          <h2 id={id ? `${id}-heading` : undefined} className={styles.title}>
+      <div className={styles.blockContainer}>
+        <header className={styles.blockHeader}>
+          {eyebrow && <p className={styles.blockEyebrow}>{eyebrow}</p>}
+          <h2 id={id ? `${id}-heading` : undefined} className={styles.blockTitle}>
             {title}
           </h2>
-          {description && <p className={styles.description}>{description}</p>}
+          {description && (
+            <p className={styles.blockDescription}>{description}</p>
+          )}
         </header>
-        <div className={styles.body}>{children}</div>
+        <div className={styles.blockBody}>{children}</div>
       </div>
     </section>
   );

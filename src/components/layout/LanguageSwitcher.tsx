@@ -3,7 +3,7 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { useLanguage } from "@/providers/LanguageProvider";
 import { LanguageFlag } from "./LanguageFlag";
-import styles from "./LanguageSwitcher.module.scss";
+import styles from "@/styles/layout.module.scss";
 
 type LanguageSwitcherProps = {
   onSelect?: () => void;
@@ -44,55 +44,55 @@ export function LanguageSwitcher({ onSelect }: LanguageSwitcherProps) {
   const currentLabel = getLabel(language);
 
   return (
-    <div className={styles.root} ref={rootRef}>
-      <span className={styles.divider} aria-hidden />
+    <div className={styles.langRoot} ref={rootRef}>
+      <span className={styles.langDivider} aria-hidden />
 
       <button
         type="button"
-        className={`${styles.trigger} ${open ? styles.triggerOpen : ""}`}
+        className={`${styles.langTrigger} ${open ? styles.langTriggerOpen : ""}`}
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-controls={listboxId}
         aria-label={`Language: ${currentLabel}`}
         onClick={() => setOpen((value) => !value)}
       >
-        <span className={styles.triggerFlag}>
+        <span className={styles.langTriggerFlag}>
           <LanguageFlag code={language} />
         </span>
-        <span className={styles.code}>{language.toUpperCase()}</span>
+        <span className={styles.langCode}>{language.toUpperCase()}</span>
         <span
-          className={`${styles.chevron} ${open ? styles.chevronOpen : ""}`}
+          className={`${styles.langChevron} ${open ? styles.langChevronOpen : ""}`}
           aria-hidden
         />
       </button>
 
       <div
-        className={`${styles.panel} ${open ? styles.panelOpen : ""}`}
+        className={`${styles.langPanel} ${open ? styles.langPanelOpen : ""}`}
         aria-hidden={!open}
       >
-        <p className={styles.panelLabel}>{t("nav.language")}</p>
-        <ul id={listboxId} className={styles.menu} role="listbox">
+        <p className={styles.langPanelLabel}>{t("nav.language")}</p>
+        <ul id={listboxId} className={styles.langMenu} role="listbox">
           {languages.map((item) => {
             const selected = item.code === language;
             return (
               <li key={item.code} role="option" aria-selected={selected}>
                 <button
                   type="button"
-                  className={`${styles.option} ${selected ? styles.optionSelected : ""}`}
+                  className={`${styles.langOption} ${selected ? styles.langOptionSelected : ""}`}
                   onClick={() => {
                     setLanguage(item.code);
                     setOpen(false);
                     onSelect?.();
                   }}
                 >
-                  <span className={styles.optionFlag}>
+                  <span className={styles.langOptionFlag}>
                     <LanguageFlag code={item.code} />
                   </span>
-                  <span className={styles.optionCopy}>
-                    <span className={styles.optionName}>
+                  <span className={styles.langOptionCopy}>
+                    <span className={styles.langOptionName}>
                       {getLabel(item.code)}
                     </span>
-                    <span className={styles.optionCode}>
+                    <span className={styles.langOptionCode}>
                       {item.code.toUpperCase()}
                     </span>
                   </span>

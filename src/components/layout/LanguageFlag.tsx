@@ -1,4 +1,4 @@
-import styles from "./LanguageFlag.module.scss";
+import styles from "@/styles/layout.module.scss";
 
 type LanguageFlagProps = {
   code: string;

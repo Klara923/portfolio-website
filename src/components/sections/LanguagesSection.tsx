@@ -3,7 +3,7 @@
 import { usePortfolioData } from "@/hooks/usePortfolioData";
 import { useLanguage } from "@/providers/LanguageProvider";
 import { SectionBlock } from "./SectionBlock";
-import styles from "./LanguagesSection.module.scss";
+import styles from "@/styles/sections.module.scss";
 
 export function LanguagesSection() {
   const { t } = useLanguage();
@@ -11,11 +11,11 @@ export function LanguagesSection() {
 
   return (
     <SectionBlock id="languages" title={t("sections.languagesTitle")}>
-      <ul className={styles.list}>
+      <ul className={styles.languagesList}>
         {languages.map((language) => (
-          <li key={language.id} className={styles.item}>
-            <span className={styles.name}>{language.name}</span>
-            <span className={styles.level}>{language.level}</span>
+          <li key={language.id} className={styles.languagesItem}>
+            <span className={styles.languagesName}>{language.name}</span>
+            <span className={styles.languagesLevel}>{language.level}</span>
           </li>
         ))}
       </ul>

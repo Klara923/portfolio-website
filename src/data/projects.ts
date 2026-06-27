@@ -1,0 +1,123 @@
+export type ProjectRecord = {
+  slug: string;
+  category: "programming" | "design";
+  technologies: string[];
+  image: string | null;
+  secondary_media: string | null;
+  pdf: string | null;
+  project_url: string;
+  github_url: string;
+  featured: boolean;
+  display_order: number;
+};
+
+export const projectRecords: ProjectRecord[] = [
+  {
+    slug: "pixel-cat-branding",
+    category: "design",
+    technologies: ["Adobe Photoshop", "Adobe Illustrator", "Adobe After Effects", "Animation", "Motion Design", "Interactive PDF", "Mockup Design"],
+    image: "/projects/Screenshot_2026-06-08_at_16.26.40.png",
+    secondary_media: null,
+    pdf: null,
+    project_url: "https://www.figma.com/proto/1LvrAc7b8yDqyKbWRh9dsN/Personal-branding?node-id=45-305&t=kqrY6vDFnjVuJIVK-1",
+    github_url: "",
+    featured: false,
+    display_order: 0,
+  },
+  {
+    slug: "labyrinth-of-souls-adventure-javascript-game",
+    category: "programming",
+    technologies: ["JavaScript", "p5.js", "HTML", "CSS", "Github"],
+    image: "/projects/game.png",
+    secondary_media: "/projects/secondary/TRAILER_GAME_2023.mp4",
+    pdf: null,
+    project_url: "https://klara923.github.io/labyrinth-of-souls-game/",
+    github_url: "https://github.com/Klara923/labyrinth-of-souls-game",
+    featured: false,
+    display_order: 0,
+  },
+  {
+    slug: "lunalander-cat-lander-game",
+    category: "programming",
+    technologies: ["JavaScript", "p5.js", "HTML", "CSS", "GitHub"],
+    image: "/projects/cat.png",
+    secondary_media: null,
+    pdf: null,
+    project_url: "https://klara923.github.io/luna-lander/",
+    github_url: "https://github.com/Klara923/luna-lander",
+    featured: false,
+    display_order: 0,
+  },
+  {
+    slug: "graphic-design-portfolio",
+    category: "design",
+    technologies: ["Spline", "AI image and vector generation", "Adobe Illustrator", "Adobe Photoshop", "Typography", "p5.js", "JavaScript", "Mockup Design", "Figma"],
+    image: "/projects/echo.png",
+    secondary_media: null,
+    pdf: "/projects/pdfs/Portfolio.pdf",
+    project_url: "",
+    github_url: "",
+    featured: false,
+    display_order: 0,
+  },
+  {
+    slug: "tokyo-magazine",
+    category: "design",
+    technologies: ["Adobe InDesign", "Adobe Photoshop", "Adobe Illustrator", "Editorial Design", "Typography", "Print Design", "Interactive PDF"],
+    image: "/projects/tokyo.png",
+    secondary_media: null,
+    pdf: "/projects/pdfs/Tokyo_magazine_latest.pdf",
+    project_url: "",
+    github_url: "",
+    featured: true,
+    display_order: 0,
+  },
+  {
+    slug: "ai-powered-facial-emotion-recognition-with-3d-hand-driven-painting-application",
+    category: "programming",
+    technologies: ["React", "TensorFlow", "JavaScript", "HTML", "CSS", "Groupwork", "Presentation", "Presenting", "Project Management"],
+    image: "/projects/emo.png",
+    secondary_media: null,
+    pdf: null,
+    project_url: "https://inside-out-inspired-painting-projec-self.vercel.app/",
+    github_url: "https://github.com/Klara923/Inside-out-inspired-painting-project",
+    featured: true,
+    display_order: 1,
+  },
+  {
+    slug: "empowherment-platform",
+    category: "design",
+    technologies: ["Figma", "UX Research", "User Flows", "Wireframing", "UI Design", "Prototyping", "Pitch Presentation", "Project Management"],
+    image: "/projects/empowherment.png",
+    secondary_media: null,
+    pdf: null,
+    project_url: "https://www.figma.com/proto/yabmvsHCWjDl5K7yRue2Kk/empowHERment?node-id=0-1",
+    github_url: "",
+    featured: true,
+    display_order: 2,
+  },
+  {
+    slug: "creative-coding-projects",
+    category: "programming",
+    technologies: ["JavaScript", "p5.js"],
+    image: "/projects/creative.png",
+    secondary_media: null,
+    pdf: null,
+    project_url: "https://ju-nmd2022.github.io/creative-coding-portfolio-Klara923/",
+    github_url: "https://github.com/Klara923/Creative-coding",
+    featured: true,
+    display_order: 3,
+  },
+  {
+    slug: "art-gallery-e-commerce-website",
+    category: "programming",
+    technologies: ["Figma", "HTML", "CSS", "JavaScript", "GitHub", "Groupwork"],
+    image: "/projects/jkpg.png",
+    secondary_media: null,
+    pdf: null,
+    project_url: "https://klara923.github.io/web-design-project/",
+    github_url: "https://github.com/Klara923/web-design-project",
+    featured: true,
+    display_order: 4,
+  },
+];

@@ -13,14 +13,21 @@ Next.js app with TypeScript and SCSS modules.
 ```
 src/
 ├── app/              # App router pages & global SCSS
-├── components/       # React components + *.module.scss
-├── lib/              # API client
+├── components/       # React components
+├── data/             # Portfolio & project data
+├── hooks/            # Data hooks (portfolio, projects)
+├── i18n/             # Translations & project content
+├── lib/              # Project helpers
+├── styles/           # Shared SCSS modules
 └── types/            # TypeScript types
 ```
 
-Copy `.env.local.example` to `.env.local` and set:
+Projects are frontend-only:
 
-- `NEXT_PUBLIC_API_URL` — your Django API base URL
-- `NEXT_PUBLIC_SUPABASE_URL` — your Supabase project URL (for media via `next/image`)
+- Structure & links: `src/data/projects.ts`
+- Translated copy: `src/i18n/projectContent.ts`
+- Media: `public/projects/`
 
-Supabase S3 credentials belong on the **backend** (Render), not in this frontend.
+Optional `.env.local` — only if you use Supabase-hosted remote images:
+
+- `NEXT_PUBLIC_SUPABASE_URL`

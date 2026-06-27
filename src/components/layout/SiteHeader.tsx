@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { site } from "@/data/portfolio";
 import { useLanguage } from "@/providers/LanguageProvider";
 import { LanguageSwitcher } from "./LanguageSwitcher";
-import styles from "./SiteHeader.module.scss";
+import styles from "@/styles/layout.module.scss";
 
 export function SiteHeader() {
   const { t } = useLanguage();
@@ -48,7 +48,7 @@ export function SiteHeader() {
     <header
       className={`${styles.header} ${scrolled || menuOpen ? styles.scrolled : ""}`}
     >
-      <div className={styles.inner}>
+      <div className={styles.headerInner}>
         <button
           type="button"
           className={styles.menuButton}

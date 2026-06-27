@@ -2,7 +2,7 @@
 
 import { useLanguage } from "@/providers/LanguageProvider";
 import { FeaturedProjectsList } from "./FeaturedProjectsList";
-import styles from "./ProjectsGrid.module.scss";
+import styles from "@/styles/sections.module.scss";
 
 export function ProjectsGrid() {
   const { t } = useLanguage();
@@ -10,11 +10,11 @@ export function ProjectsGrid() {
   return (
     <section
       id="projects"
-      className={styles.section}
+      className={styles.projectsSection}
       aria-labelledby="projects-heading"
     >
-      <div className={styles.container}>
-        <h2 id="projects-heading" className={styles.sectionLabel}>
+      <div className={styles.projectsContainer}>
+        <h2 id="projects-heading" className={styles.projectsSectionLabel}>
           {t("sections.projects")}
         </h2>
 

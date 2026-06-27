@@ -14,30 +14,30 @@ import { SkillsSection } from "@/components/sections/SkillsSection";
 import { LanguagesSection } from "@/components/sections/LanguagesSection";
 import { ProjectsGrid } from "@/components/sections/ProjectsGrid";
 import { ContactSection } from "@/components/sections/ContactSection";
-import styles from "./PortfolioPage.module.scss";
+import styles from "@/styles/pages.module.scss";
 
 export function PortfolioPage() {
   const { t } = useLanguage();
   const { education, workExperience, extraExperience } = usePortfolioData();
 
   return (
-    <div className={styles.page}>
+    <div className={styles.homePage}>
       <SiteHeader />
 
       <section
         id="about"
-        className={styles.hero}
+        className={styles.homeHero}
         aria-labelledby="hero-heading"
       >
-        <div className={styles.heroInner}>
-          <div className={styles.heroLeft}>
-            <h1 id="hero-heading" className={styles.heroTitle}>
+        <div className={styles.homeHeroInner}>
+          <div className={styles.homeHeroLeft}>
+            <h1 id="hero-heading" className={styles.homeHeroTitle}>
               {t("hero.greeting")}
               <br />
               {site.name}.
             </h1>
           </div>
-          <div className={styles.heroDesc}>
+          <div className={styles.homeHeroDesc}>
             <p>
               <strong>{t("hero.p1.role")}</strong> {t("hero.p1.with")}{" "}
               <strong>{t("hero.p1.experience")}</strong> {t("hero.p1.building")}{" "}
@@ -61,7 +61,7 @@ export function PortfolioPage() {
 
       <main>
         <SectionBlock id="experience" title={t("sections.workExperience")}>
-          <div className={styles.stack}>
+          <div className={styles.homeStack}>
             {workExperience.map((entry) => (
               <ExperienceEntryRow key={entry.id} entry={entry} />
             ))}
@@ -69,7 +69,7 @@ export function PortfolioPage() {
         </SectionBlock>
 
         <SectionBlock title={t("sections.education")}>
-          <div className={styles.stack}>
+          <div className={styles.homeStack}>
             <EducationEntryRow entry={education[0]} />
             <CoursesEntryRow
               entries={education.slice(1)}
@@ -83,7 +83,7 @@ export function PortfolioPage() {
         <ProjectsGrid />
 
         <SectionBlock title={t("sections.extraExperience")}>
-          <div className={styles.stack}>
+          <div className={styles.homeStack}>
             {extraExperience.map((entry) => (
               <ExperienceEntryRow key={entry.id} entry={entry} />
             ))}
@@ -94,8 +94,8 @@ export function PortfolioPage() {
         <ContactSection />
       </main>
 
-      <footer className={styles.footer}>
-        <div className={styles.footerLinks}>
+      <footer className={styles.homeFooter}>
+        <div className={styles.homeFooterLinks}>
           <a
             href={site.contact.github}
             target="_blank"

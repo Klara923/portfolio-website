@@ -2,18 +2,18 @@
 
 import type { EducationEntry, ExperienceEntry } from "@/data/portfolio";
 import { useReveal } from "@/components/reveal/useReveal";
-import reveal from "@/components/reveal/reveal.module.scss";
-import styles from "./ResumeEntry.module.scss";
+import shared from "@/styles/shared.module.scss";
+import styles from "@/styles/sections.module.scss";
 
 export function EducationEntryRow({ entry }: { entry: EducationEntry }) {
   const { ref, revealed } = useReveal<HTMLElement>();
   return (
     <article
       ref={ref}
-      className={`${styles.entry} ${reveal.base} ${revealed ? reveal.in : ""}`}
+      className={`${styles.resumeEntry} ${shared.revealBase} ${revealed ? shared.revealIn : ""}`}
     >
-      <h3 className={styles.heading}>{entry.title}</h3>
-      <p className={styles.meta}>
+      <h3 className={styles.resumeHeading}>{entry.title}</h3>
+      <p className={styles.resumeMeta}>
         {entry.period}, {entry.institution}
         {entry.location ? `, ${entry.location}` : ""}
       </p>
@@ -32,14 +32,14 @@ export function CoursesEntryRow({
   return (
     <article
       ref={ref}
-      className={`${styles.entry} ${reveal.base} ${revealed ? reveal.in : ""}`}
+      className={`${styles.resumeEntry} ${shared.revealBase} ${revealed ? shared.revealIn : ""}`}
     >
-      <h3 className={styles.heading}>{label}</h3>
-      <ul className={styles.courseList}>
+      <h3 className={styles.resumeHeading}>{label}</h3>
+      <ul className={styles.resumeCourseList}>
         {entries.map((entry) => (
-          <li key={entry.id} className={styles.course}>
-            <span className={styles.courseTitle}>{entry.title}</span>
-            <span className={styles.meta}>
+          <li key={entry.id} className={styles.resumeCourse}>
+            <span className={styles.resumeCourseTitle}>{entry.title}</span>
+            <span className={styles.resumeMeta}>
               {entry.period}, {entry.institution}
               {entry.location ? `, ${entry.location}` : ""}
             </span>
@@ -55,16 +55,16 @@ export function ExperienceEntryRow({ entry }: { entry: ExperienceEntry }) {
   return (
     <article
       ref={ref}
-      className={`${styles.entry} ${reveal.base} ${revealed ? reveal.in : ""}`}
+      className={`${styles.resumeEntry} ${shared.revealBase} ${revealed ? shared.revealIn : ""}`}
     >
-      <div className={styles.row}>
-        <h3 className={styles.org}>
+      <div className={styles.resumeRow}>
+        <h3 className={styles.resumeOrg}>
           {entry.url ? (
             <a
               href={entry.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.orgLink}
+              className={styles.resumeOrgLink}
             >
               {entry.organization}
               <span aria-hidden> ↗</span>
@@ -73,18 +73,18 @@ export function ExperienceEntryRow({ entry }: { entry: ExperienceEntry }) {
             entry.organization
           )}
         </h3>
-        <span className={styles.period}>{entry.period}</span>
+        <span className={styles.resumePeriod}>{entry.period}</span>
       </div>
-      <p className={styles.role}>{entry.role}</p>
+      <p className={styles.resumeRole}>{entry.role}</p>
       {entry.bullets && entry.bullets.length > 0 ? (
-        <ul className={styles.bullets}>
+        <ul className={styles.resumeBullets}>
           {entry.bullets.map((bullet, i) => (
             <li key={i}>{bullet}</li>
           ))}
         </ul>
       ) : (
         entry.description && (
-          <p className={styles.description}>{entry.description}</p>
+          <p className={styles.resumeDescription}>{entry.description}</p>
         )
       )}
     </article>
