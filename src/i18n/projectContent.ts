@@ -7,6 +7,13 @@ export type ProjectContent = {
 };
 
 export const projectContentEn: Record<string, ProjectContent> = {
+  "personal-portfolio": {
+    title: "Portfolio Website",
+    shortDescription:
+      "A bilingual portfolio built with Next.js, TypeScript and SCSS modules, with typed i18n and a static project data layer.",
+    description:
+      "Personal portfolio website showcasing work experience, education, skills and selected projects. Built with Next.js, TypeScript and SCSS modules. Includes English/Polish localization, accessible navigation and a content model that keeps project structure separate from translated copy.",
+  },
   "giarddesign-website": {
     title: "GiardDesign Website",
     shortDescription:
@@ -81,6 +88,13 @@ export const projectContentEn: Record<string, ProjectContent> = {
 };
 
 export const projectContentPl: Record<string, ProjectContent> = {
+  "personal-portfolio": {
+    title: "Strona Portfolio",
+    shortDescription:
+      "Dwujęzyczna strona portfolio w Next.js, TypeScript i SCSS modules, z typowanym i18n oraz statyczną warstwą danych projektów.",
+    description:
+      "Osobista strona portfolio prezentująca doświadczenie, edukację, umiejętności i wybrane projekty. Zbudowana w Next.js, TypeScript i SCSS modules. Zawiera lokalizację EN/PL, dostępna nawigację oraz model treści oddzielający strukturę projektów od przetłumaczonych opisów.",
+  },
   "giarddesign-website": {
     title: "Strona GiardDesign",
     shortDescription:

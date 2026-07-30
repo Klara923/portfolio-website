@@ -4,6 +4,18 @@ export type { ProjectRecord } from "@/types/project";
 
 export const projectRecords: ProjectRecord[] = [
   {
+    slug: "personal-portfolio",
+    category: "programming",
+    technologies: ["Next.js", "TypeScript", "SCSS Modules", "i18n"],
+    image: "/projects/portfolio.png",
+    secondaryMedia: null,
+    pdf: null,
+    projectUrl: null,
+    githubUrl: "https://github.com/Klara923/portfolio-fe",
+    featured: true,
+    displayOrder: 0,
+  },
+  {
     slug: "giarddesign-website",
     category: "programming",
     technologies: ["Vue", "Vite", "Tailwind CSS", "JavaScript"],
