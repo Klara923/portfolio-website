@@ -1,0 +1,9 @@
+node_modules
+.next
+out
+package-lock.json
+*.tsbuildinfo
+public/projects/pdfs
+public/projects/secondary
+*.mp4
+*.pdf

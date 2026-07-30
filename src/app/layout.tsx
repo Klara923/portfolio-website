@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { LanguageProvider } from "@/providers/LanguageProvider";
+import { site } from "@/data/portfolio";
 import "./globals.scss";
 
 const geistSans = Geist({
@@ -9,8 +10,9 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Personal portfolio",
+  title: `${site.name} — Portfolio`,
+  description:
+    "Full-stack developer portfolio — React, TypeScript, Django, and product design.",
 };
 
 export default function RootLayout({

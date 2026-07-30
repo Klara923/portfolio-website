@@ -22,7 +22,7 @@ export async function generateMetadata({
   }
 
   const description =
-    project.short_description || project.description.slice(0, 160);
+    project.shortDescription || project.description.slice(0, 160);
 
   return {
     title: project.title,

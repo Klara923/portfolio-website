@@ -17,32 +17,10 @@ const en = {
   },
   hero: {
     greeting: "Hello, I'm",
-    p1: {
-      role: "Full-stack Developer",
-      with: "with",
-      experience: "over 2 years of experience",
-      building: "coding",
-      domain: "SaaS",
-      products: ".",
-      stackLead: "I work mainly with",
-      stack: "React, TypeScript, and Django",
-      frontend: ", with a particular focus on the frontend.",
-    },
-    p2: {
-      intro: "I combine technical skills with a",
-      design: "strong eye for design",
-      emDash: "- I spent",
-      studies:
-        "over 3 years studying software development and graphic design in Sweden",
-      foundation: ", which gave me a solid foundation in",
-      ux: "UX/UI",
-      outro: "and a user-centered approach.",
-    },
-    p3: {
-      intro: "I'm based in Poland and open to",
-      opportunities: "remote, hybrid, and international opportunities",
-      end: ".",
-    },
+    // **text** renders as <strong> via RichText
+    p1: "**Full-stack Developer** with **over 2 years of experience** coding **SaaS**. I work mainly with **React, TypeScript, and Django**, with a particular focus on the frontend.",
+    p2: "I combine technical skills with a **strong eye for design** — I spent **over 3 years studying software development and graphic design in Sweden**, which gave me a solid foundation in **UX/UI** and a user-centered approach.",
+    p3: "I'm based in Poland and open to **remote, hybrid, and international opportunities**.",
   },
   sections: {
     workExperience: "Work experience",
@@ -136,7 +114,15 @@ const en = {
   },
 };
 
-const pl = {
+type LocaleShape<T> = {
+  [K in keyof T]: T[K] extends string
+    ? string
+    : T[K] extends readonly string[]
+      ? readonly string[]
+      : LocaleShape<T[K]>;
+};
+
+const pl: LocaleShape<typeof en> = {
   nav: {
     experience: "Doświadczenie",
     projects: "Projekty",
@@ -153,32 +139,9 @@ const pl = {
   },
   hero: {
     greeting: "Cześć, jestem",
-    p1: {
-      role: "Full-stack Developer",
-      with: "z",
-      experience: "ponad 2-letnim doświadczeniem",
-      building: "w kodowaniu",
-      domain: "SaaS",
-      products: ".",
-      stackLead: "Na co dzień pracuję głównie w",
-      stack: "React, TypeScript i Django",
-      frontend: ", ze szczególnym naciskiem na warstwę frontendową.",
-    },
-    p2: {
-      intro: "Łączę kompetencje techniczne z",
-      design: "wyczuciem designu",
-      emDash: "- przez",
-      studies:
-        "ponad 3 lata studiowałam software development, grafikę i projektowanie w Szwecji",
-      foundation: ", co dało mi solidne podstawy w",
-      ux: "UX/UI",
-      outro: "i podejściu user-centered.",
-    },
-    p3: {
-      intro: "Mieszkam w Polsce i jestem otwarta na",
-      opportunities: "pracę zdalną, hybrydową oraz możliwości za granicą",
-      end: ".",
-    },
+    p1: "**Full-stack Developer** z **ponad 2-letnim doświadczeniem** w kodowaniu **SaaS**. Na co dzień pracuję głównie w **React, TypeScript i Django**, ze szczególnym naciskiem na warstwę frontendową.",
+    p2: "Łączę kompetencje techniczne z **wyczuciem designu** — przez **ponad 3 lata studiowałam software development, grafikę i projektowanie w Szwecji**, co dało mi solidne podstawy w **UX/UI** i podejściu user-centered.",
+    p3: "Mieszkam w Polsce i jestem otwarta na **pracę zdalną, hybrydową oraz możliwości za granicą**.",
   },
   sections: {
     workExperience: "Doświadczenie zawodowe",

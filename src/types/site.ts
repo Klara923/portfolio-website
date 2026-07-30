@@ -4,8 +4,8 @@ export type LanguageOption = {
 };
 
 export type SiteConfig = {
-  feature_flags: {
-    language_switcher: boolean;
+  featureFlags: {
+    languageSwitcher: boolean;
   };
   languages: {
     default: string;

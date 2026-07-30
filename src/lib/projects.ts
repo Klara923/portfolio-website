@@ -1,38 +1,28 @@
-import { projectRecords, type ProjectRecord } from "@/data/projects";
+import { projectRecords } from "@/data/projects";
 import { getProjectContent } from "@/i18n/projectContent";
 import type { Locale } from "@/i18n";
 import type { Project } from "@/types/project";
 
 function localizeProject(
-  record: ProjectRecord,
+  record: (typeof projectRecords)[number],
   locale: Locale,
   id: number,
-): Project {
+): Project | null {
   const content = getProjectContent(locale, record.slug);
-  if (!content) {
-    throw new Error("not-found");
-  }
+  if (!content) return null;
 
   return {
     id,
-    slug: record.slug,
-    category: record.category,
-    technologies: record.technologies,
-    image: record.image,
-    secondary_media: record.secondary_media,
-    pdf: record.pdf,
-    project_url: record.project_url,
-    github_url: record.github_url,
-    featured: record.featured,
-    display_order: record.display_order,
+    ...record,
     ...content,
   };
 }
 
 export function getLocalizedProjects(locale: Locale): Project[] {
-  return projectRecords.map((record, index) =>
-    localizeProject(record, locale, index + 1),
-  );
+  return projectRecords.flatMap((record, index) => {
+    const project = localizeProject(record, locale, index + 1);
+    return project ? [project] : [];
+  });
 }
 
 export function getLocalizedProject(
@@ -40,15 +30,8 @@ export function getLocalizedProject(
   locale: Locale = "en",
 ): Project | null {
   const index = projectRecords.findIndex((record) => record.slug === slug);
-  if (index === -1) {
-    return null;
-  }
-
-  try {
-    return localizeProject(projectRecords[index], locale, index + 1);
-  } catch {
-    return null;
-  }
+  if (index === -1) return null;
+  return localizeProject(projectRecords[index], locale, index + 1);
 }
 
 export function getAllProjectSlugs(): string[] {

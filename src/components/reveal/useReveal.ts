@@ -4,16 +4,13 @@ import { useEffect, useRef, useState } from "react";
 
 export function useReveal<T extends HTMLElement = HTMLElement>() {
   const ref = useRef<T>(null);
-  const [revealed, setRevealed] = useState(false);
+  const [revealed, setRevealed] = useState(
+    () => typeof IntersectionObserver === "undefined",
+  );
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
-
-    if (typeof IntersectionObserver === "undefined") {
-      setRevealed(true);
-      return;
-    }
+    if (!el || typeof IntersectionObserver === "undefined") return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {

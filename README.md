@@ -1,33 +1,68 @@
-# Portfolio Frontend
+# Portfolio
 
-Next.js app with TypeScript and SCSS modules.
+Personal portfolio site built with **Next.js**, **TypeScript**, and **SCSS modules**.  
+English / Polish UI via a small typed i18n layer.
+
+## Stack
+
+- Next.js (App Router)
+- React 19
+- TypeScript (strict)
+- Sass / CSS modules
+- Deployed on Vercel (typical)
 
 ## Scripts
 
-- `npm run dev` — development server
-- `npm run build` — production build
-- `npm run start` — run production build
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Development server |
+| `npm run build` | Production build |
+| `npm run start` | Serve production build |
+| `npm run lint` | ESLint |
+| `npm run typecheck` | `tsc --noEmit` |
+| `npm run format` | Prettier write |
+| `npm run format:check` | Prettier check |
 
-## Structure
+## Setup
+
+```bash
+npm install
+npm run dev
+```
+
+Optional `.env.local` (only if you load images from Supabase):
+
+```bash
+cp .env.local.example .env.local
+```
+
+## Project structure
 
 ```
 src/
-├── app/              # App router pages & global SCSS
-├── components/       # React components
-├── data/             # Portfolio & project data
-├── hooks/            # Data hooks (portfolio, projects)
-├── i18n/             # Translations & project content
-├── lib/              # Project helpers
-├── styles/           # Shared SCSS modules
-└── types/            # TypeScript types
+├── app/              # App Router pages
+├── components/       # UI
+├── data/             # Structural portfolio & project records
+├── hooks/            # Localized data hooks
+├── i18n/             # Translations & project copy
+├── lib/              # Helpers
+├── providers/        # Language context
+├── styles/           # SCSS modules
+└── types/            # Shared TypeScript types
+public/
+└── projects/         # Thumbnails, PDFs, secondary media
 ```
 
-Projects are frontend-only:
+## Adding a project
 
-- Structure & links: `src/data/projects.ts`
-- Translated copy: `src/i18n/projectContent.ts`
-- Media: `public/projects/`
+1. Add a record in `src/data/projects.ts` (slug, tech, links, media paths).
+2. Add EN + PL copy in `src/i18n/projectContent.ts`.
+3. Drop media into `public/projects/` (prefer WebP/PNG under ~1–2 MB for thumbs).
 
-Optional `.env.local` — only if you use Supabase-hosted remote images:
+## Notes on large assets
 
-- `NEXT_PUBLIC_SUPABASE_URL`
+Some PDFs and videos under `public/projects/` are large. For a lean public clone, consider Git LFS or hosting heavy files externally and linking to them from `projectUrl` / `pdf`.
+
+## License
+
+MIT — see [LICENSE](./LICENSE).

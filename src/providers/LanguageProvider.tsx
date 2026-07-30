@@ -10,7 +10,7 @@ import {
   type ReactNode,
 } from "react";
 import { siteConfig } from "@/data/siteConfig";
-import { getTranslation, type Locale } from "@/i18n";
+import { getTranslation, type Locale, type TranslationKey } from "@/i18n";
 import type { LanguageOption } from "@/types/site";
 
 const STORAGE_KEY = "portfolio-language";
@@ -20,6 +20,18 @@ const DISPLAY_LABELS: Record<string, string> = {
   pl: "Polish",
 };
 
+function readStoredLanguage(
+  available: LanguageOption[],
+  fallback: string,
+): string {
+  if (typeof window === "undefined") return fallback;
+  const stored = window.localStorage.getItem(STORAGE_KEY);
+  if (stored && available.some((item) => item.code === stored)) {
+    return stored;
+  }
+  return fallback;
+}
+
 type LanguageContextValue = {
   language: string;
   locale: Locale;
@@ -28,7 +40,7 @@ type LanguageContextValue = {
   switcherEnabled: boolean;
   ready: boolean;
   getLabel: (code: string) => string;
-  t: (path: string, params?: Record<string, string>) => string;
+  t: (path: TranslationKey, params?: Record<string, string>) => string;
 };
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
@@ -38,25 +50,20 @@ type LanguageProviderProps = {
 };
 
 export function LanguageProvider({ children }: LanguageProviderProps) {
-  const [language, setLanguageState] = useState(siteConfig.languages.default);
+  const languages = siteConfig.languages.available;
+  const switcherEnabled = siteConfig.featureFlags.languageSwitcher;
+  const fallback = siteConfig.languages.default;
+
+  const [language, setLanguageState] = useState(fallback);
   const [ready, setReady] = useState(false);
 
-  const languages = siteConfig.languages.available;
-  const switcherEnabled = siteConfig.feature_flags.language_switcher;
-
   useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    const allowed = new Set(languages.map((item) => item.code));
-    const fallback = siteConfig.languages.default;
-
-    if (stored && allowed.has(stored)) {
-      setLanguageState(stored);
-    } else {
-      setLanguageState(fallback);
-    }
-
-    setReady(true);
-  }, [languages]);
+    const frame = requestAnimationFrame(() => {
+      setLanguageState(readStoredLanguage(languages, fallback));
+      setReady(true);
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [languages, fallback]);
 
   useEffect(() => {
     document.documentElement.lang = language;
@@ -79,7 +86,7 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
   const locale: Locale = language === "pl" ? "pl" : "en";
 
   const t = useCallback(
-    (path: string, params?: Record<string, string>) =>
+    (path: TranslationKey, params?: Record<string, string>) =>
       getTranslation(locale, path, params),
     [locale],
   );
@@ -95,7 +102,16 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
       getLabel,
       t,
     }),
-    [language, locale, setLanguage, languages, switcherEnabled, ready, getLabel, t],
+    [
+      language,
+      locale,
+      setLanguage,
+      languages,
+      switcherEnabled,
+      ready,
+      getLabel,
+      t,
+    ],
   );
 
   return (

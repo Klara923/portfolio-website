@@ -1,15 +1,6 @@
-export type ProjectRecord = {
-  slug: string;
-  category: "programming" | "design";
-  technologies: string[];
-  image: string | null;
-  secondary_media: string | null;
-  pdf: string | null;
-  project_url: string;
-  github_url: string;
-  featured: boolean;
-  display_order: number;
-};
+import type { ProjectRecord } from "@/types/project";
+
+export type { ProjectRecord } from "@/types/project";
 
 export const projectRecords: ProjectRecord[] = [
   {
@@ -17,12 +8,12 @@ export const projectRecords: ProjectRecord[] = [
     category: "programming",
     technologies: ["Vue", "Vite", "Tailwind CSS", "JavaScript"],
     image: "/projects/giarddesign.png",
-    secondary_media: null,
+    secondaryMedia: null,
     pdf: null,
-    project_url: "https://adrespect-website.vercel.app/",
-    github_url: "https://github.com/Klara923/adrespect-website",
+    projectUrl: "https://adrespect-website.vercel.app/",
+    githubUrl: "https://github.com/Klara923/adrespect-website",
     featured: true,
-    display_order: 0,
+    displayOrder: 0,
   },
   {
     slug: "pixel-cat-branding",
@@ -36,38 +27,38 @@ export const projectRecords: ProjectRecord[] = [
       "Interactive PDF",
       "Mockup Design",
     ],
-    image: "/projects/Screenshot_2026-06-08_at_16.26.40.png",
-    secondary_media: null,
+    image: "/projects/pixel-cat-branding.png",
+    secondaryMedia: null,
     pdf: null,
-    project_url:
+    projectUrl:
       "https://www.figma.com/proto/1LvrAc7b8yDqyKbWRh9dsN/Personal-branding?node-id=45-305&t=kqrY6vDFnjVuJIVK-1",
-    github_url: "",
+    githubUrl: null,
     featured: false,
-    display_order: 0,
+    displayOrder: 0,
   },
   {
     slug: "labyrinth-of-souls-adventure-javascript-game",
     category: "programming",
-    technologies: ["JavaScript", "p5.js", "HTML", "CSS", "Github"],
+    technologies: ["JavaScript", "p5.js", "HTML", "CSS", "GitHub"],
     image: "/projects/game.png",
-    secondary_media: "/projects/secondary/TRAILER_GAME_2023.mp4",
+    secondaryMedia: "/projects/secondary/TRAILER_GAME_2023.mp4",
     pdf: null,
-    project_url: "https://klara923.github.io/labyrinth-of-souls-game/",
-    github_url: "https://github.com/Klara923/labyrinth-of-souls-game",
+    projectUrl: "https://klara923.github.io/labyrinth-of-souls-game/",
+    githubUrl: "https://github.com/Klara923/labyrinth-of-souls-game",
     featured: false,
-    display_order: 0,
+    displayOrder: 0,
   },
   {
     slug: "lunalander-cat-lander-game",
     category: "programming",
     technologies: ["JavaScript", "p5.js", "HTML", "CSS", "GitHub"],
     image: "/projects/cat.png",
-    secondary_media: null,
+    secondaryMedia: null,
     pdf: null,
-    project_url: "https://klara923.github.io/luna-lander/",
-    github_url: "https://github.com/Klara923/luna-lander",
+    projectUrl: "https://klara923.github.io/luna-lander/",
+    githubUrl: "https://github.com/Klara923/luna-lander",
     featured: false,
-    display_order: 0,
+    displayOrder: 0,
   },
   {
     slug: "graphic-design-portfolio",
@@ -84,12 +75,12 @@ export const projectRecords: ProjectRecord[] = [
       "Figma",
     ],
     image: "/projects/echo.png",
-    secondary_media: null,
+    secondaryMedia: null,
     pdf: "/projects/pdfs/Portfolio.pdf",
-    project_url: "",
-    github_url: "",
+    projectUrl: null,
+    githubUrl: null,
     featured: false,
-    display_order: 0,
+    displayOrder: 0,
   },
   {
     slug: "tokyo-magazine",
@@ -104,12 +95,12 @@ export const projectRecords: ProjectRecord[] = [
       "Interactive PDF",
     ],
     image: "/projects/tokyo.png",
-    secondary_media: null,
+    secondaryMedia: null,
     pdf: "/projects/pdfs/Tokyo_magazine_latest.pdf",
-    project_url: "",
-    github_url: "",
+    projectUrl: null,
+    githubUrl: null,
     featured: true,
-    display_order: 0,
+    displayOrder: 0,
   },
   {
     slug: "ai-powered-facial-emotion-recognition-with-3d-hand-driven-painting-application",
@@ -126,13 +117,13 @@ export const projectRecords: ProjectRecord[] = [
       "Project Management",
     ],
     image: "/projects/emo.png",
-    secondary_media: null,
+    secondaryMedia: null,
     pdf: null,
-    project_url: "https://inside-out-inspired-painting-projec-self.vercel.app/",
-    github_url:
+    projectUrl: "https://inside-out-inspired-painting-projec-self.vercel.app/",
+    githubUrl:
       "https://github.com/Klara923/Inside-out-inspired-painting-project",
     featured: true,
-    display_order: 1,
+    displayOrder: 1,
   },
   {
     slug: "empowherment-platform",
@@ -148,37 +139,37 @@ export const projectRecords: ProjectRecord[] = [
       "Project Management",
     ],
     image: "/projects/empowherment.png",
-    secondary_media: null,
+    secondaryMedia: null,
     pdf: null,
-    project_url:
+    projectUrl:
       "https://www.figma.com/proto/yabmvsHCWjDl5K7yRue2Kk/empowHERment?node-id=0-1",
-    github_url: "",
+    githubUrl: null,
     featured: true,
-    display_order: 2,
+    displayOrder: 2,
   },
   {
     slug: "creative-coding-projects",
     category: "programming",
     technologies: ["JavaScript", "p5.js"],
     image: "/projects/creative.png",
-    secondary_media: null,
+    secondaryMedia: null,
     pdf: null,
-    project_url:
+    projectUrl:
       "https://ju-nmd2022.github.io/creative-coding-portfolio-Klara923/",
-    github_url: "https://github.com/Klara923/Creative-coding",
+    githubUrl: "https://github.com/Klara923/Creative-coding",
     featured: true,
-    display_order: 3,
+    displayOrder: 3,
   },
   {
     slug: "art-gallery-e-commerce-website",
     category: "programming",
     technologies: ["Figma", "HTML", "CSS", "JavaScript", "GitHub", "Groupwork"],
     image: "/projects/jkpg.png",
-    secondary_media: null,
+    secondaryMedia: null,
     pdf: null,
-    project_url: "https://klara923.github.io/web-design-project/",
-    github_url: "https://github.com/Klara923/web-design-project",
+    projectUrl: "https://klara923.github.io/web-design-project/",
+    githubUrl: "https://github.com/Klara923/web-design-project",
     featured: true,
-    display_order: 4,
+    displayOrder: 4,
   },
 ];

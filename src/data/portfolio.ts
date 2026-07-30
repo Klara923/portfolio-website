@@ -1,21 +1,16 @@
-export type EducationEntry = {
-  id: string;
-  title: string;
-  period: string;
-  institution: string;
-  location?: string;
-};
+import type {
+  EducationEntry,
+  ExperienceEntry,
+  LanguageEntry,
+  SkillCategory,
+} from "@/types/portfolio";
 
-export type ExperienceEntry = {
-  id: string;
-  organization: string;
-  period: string;
-  role: string;
-  location?: string;
-  description?: string;
-  bullets?: string[];
-  url?: string;
-};
+export type {
+  EducationEntry,
+  ExperienceEntry,
+  LanguageEntry,
+  SkillCategory,
+} from "@/types/portfolio";
 
 export const site = {
   name: "Klara",
@@ -27,6 +22,7 @@ export const site = {
   },
 };
 
+/** Structural education entries — localized titles/periods live in i18n. */
 export const education: EducationEntry[] = [
   {
     id: "masters",
@@ -44,75 +40,51 @@ export const education: EducationEntry[] = [
   },
 ];
 
+/** Structural work entries — localized roles/bullets live in i18n. */
 export const workExperience: ExperienceEntry[] = [
   {
     id: "procforce-intern",
     organization: "Procforce Software House",
     period: "06.2026 – Present",
-    role: "Full-stack Developer Intern",
+    role: "",
     url: "https://procforce.pl/",
-    bullets: [
-      "Redesigning company and client websites from Figma designs and implementing them in code with a focus on responsiveness and accessibility.",
-      "Developing a QR ordering system and restaurant management application with React, TypeScript, and Prisma, covering both frontend and backend API.",
-      "Building and integrating interactive 3D product configurators in web applications.",
-      "Collaborating with designers and the development team on client project delivery.",
-    ],
   },
   {
     id: "omnilexia-fe",
     organization: "Omnilexia",
     period: "06.2024 – 08.2026",
-    role: "Full-stack Developer",
+    role: "",
     url: "https://omnilexia.com",
-    bullets: [
-      "Development and maintenance of the web application and API, including implementation of new features on both frontend and backend.",
-      "Building responsive user interfaces in React and TypeScript.",
-      "Debugging and fixing issues along with application performance optimization.",
-      "Participation in code reviews and maintaining consistent code quality standards.",
-      "Refactoring existing components and modules to improve readability and maintainability.",
-      "Collaboration with designers, product owners, and the development team during planning and implementation of new features.",
-    ],
   },
   {
     id: "omnilexia-intern",
     organization: "Omnilexia",
     period: "02.2024 – 06.2024",
-    role: "UX/UI, Digital Marketing and Full-stack Intern",
+    role: "",
     url: "https://omnilexia.com",
   },
 ];
 
+/** Structural extra entries — localized roles live in i18n. */
 export const extraExperience: ExperienceEntry[] = [
   {
     id: "justice",
     organization: "E-sport student association Justice",
     period: "2022 – 2024",
-    role: "Graphic Designer",
+    role: "",
   },
   {
     id: "promoter",
     organization: "Student promoter at University",
     period: "2023",
-    role: "Student promoter",
+    role: "",
   },
 ];
-
-export type LanguageEntry = {
-  id: string;
-  name: string;
-  level: string;
-};
 
 export const languages: LanguageEntry[] = [
   { id: "pl", name: "Polish", level: "Native" },
   { id: "en", name: "English", level: "B2 / C1" },
 ];
-
-export type SkillCategory = {
-  id: "frontend" | "backend" | "tools" | "design";
-  label: string;
-  skills: string[];
-};
 
 export const skillCategories: SkillCategory[] = [
   {

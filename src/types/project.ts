@@ -1,16 +1,21 @@
-export type Project = {
-  id: number;
+export type ProjectCategory = "programming" | "design";
+
+export type ProjectRecord = {
   slug: string;
-  category: "programming" | "design";
-  title: string;
-  description: string;
-  short_description: string;
+  category: ProjectCategory;
   technologies: string[];
   image: string | null;
-  secondary_media: string | null;
+  secondaryMedia: string | null;
   pdf: string | null;
-  project_url: string;
-  github_url: string;
+  projectUrl: string | null;
+  githubUrl: string | null;
   featured: boolean;
-  display_order: number;
+  displayOrder: number;
+};
+
+export type Project = ProjectRecord & {
+  id: number;
+  title: string;
+  description: string;
+  shortDescription: string;
 };

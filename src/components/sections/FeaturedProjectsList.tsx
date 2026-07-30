@@ -25,7 +25,7 @@ function ProjectRow({
 }) {
   const imageUrl = resolveMediaUrl(project.image);
   const description =
-    project.short_description || project.description.slice(0, 160);
+    project.shortDescription || project.description.slice(0, 160);
   const techs = project.technologies.slice(0, 6);
   const number = String(index + 1).padStart(2, "0");
   const { ref, revealed } = useReveal<HTMLElement>();

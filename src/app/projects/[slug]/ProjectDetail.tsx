@@ -29,9 +29,6 @@ function PdfEmbed({
     let active = true;
     let objectUrl: string | null = null;
 
-    setBlobUrl(null);
-    setFailed(false);
-
     fetch(url)
       .then((res) => {
         if (!res.ok) throw new Error(`Failed to load PDF (${res.status})`);
@@ -109,22 +106,22 @@ export function ProjectDetail({ slug, initialProject }: ProjectDetailProps) {
 function ProjectBody({ project }: { project: Project }) {
   const { t } = useLanguage();
   const imageUrl = resolveMediaUrl(project.image);
-  const secondaryUrl = resolveMediaUrl(project.secondary_media);
+  const secondaryUrl = resolveMediaUrl(project.secondaryMedia);
   const pdfUrl = resolveMediaUrl(project.pdf);
 
   return (
     <article>
       <header className={styles.detailHeader}>
         <h1 className={styles.detailTitle}>{project.title}</h1>
-        {project.short_description && (
-          <p className={styles.detailLead}>{project.short_description}</p>
+        {project.shortDescription && (
+          <p className={styles.detailLead}>{project.shortDescription}</p>
         )}
 
-        {(project.project_url || project.github_url) && (
+        {(project.projectUrl || project.githubUrl) && (
           <div className={styles.detailLinks}>
-            {project.project_url && (
+            {project.projectUrl && (
               <a
-                href={project.project_url}
+                href={project.projectUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.detailLinkPrimary}
@@ -132,9 +129,9 @@ function ProjectBody({ project }: { project: Project }) {
                 {t("projectDetail.visitProject")}
               </a>
             )}
-            {project.github_url && (
+            {project.githubUrl && (
               <a
-                href={project.github_url}
+                href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.detailLinkSecondary}
@@ -204,6 +201,7 @@ function ProjectBody({ project }: { project: Project }) {
             {t("projectDetail.document")}
           </h2>
           <PdfEmbed
+            key={pdfUrl}
             url={pdfUrl}
             title={`${project.title} ${t("projectDetail.pdfTitle")}`}
             previewError={t("projectDetail.pdfPreviewError")}

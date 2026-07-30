@@ -13,6 +13,7 @@ import { SkillsSection } from "@/components/sections/SkillsSection";
 import { LanguagesSection } from "@/components/sections/LanguagesSection";
 import { ProjectsGrid } from "@/components/sections/ProjectsGrid";
 import { ContactSection } from "@/components/sections/ContactSection";
+import { RichText } from "@/components/RichText";
 import styles from "@/styles/pages.module.scss";
 
 export function PortfolioPage() {
@@ -45,21 +46,13 @@ export function PortfolioPage() {
           </div>
           <div className={styles.homeHeroDesc}>
             <p>
-              <strong>{t("hero.p1.role")}</strong> {t("hero.p1.with")}{" "}
-              <strong>{t("hero.p1.experience")}</strong> {t("hero.p1.building")}{" "}
-              <strong>{t("hero.p1.domain")}</strong> {t("hero.p1.products")}{" "}
-              {t("hero.p1.stackLead")} <strong>{t("hero.p1.stack")}</strong>
-              {t("hero.p1.frontend")}
+              <RichText text={t("hero.p1")} />
             </p>
             <p>
-              {t("hero.p2.intro")} <strong>{t("hero.p2.design")}</strong>{" "}
-              {t("hero.p2.emDash")} <strong>{t("hero.p2.studies")}</strong>
-              {t("hero.p2.foundation")} <strong>{t("hero.p2.ux")}</strong>{" "}
-              {t("hero.p2.outro")}
+              <RichText text={t("hero.p2")} />
             </p>
             <p>
-              {t("hero.p3.intro")} <strong>{t("hero.p3.opportunities")}</strong>
-              {t("hero.p3.end")}
+              <RichText text={t("hero.p3")} />
             </p>
           </div>
         </div>

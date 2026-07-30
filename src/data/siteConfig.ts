@@ -1,8 +1,8 @@
 import type { SiteConfig } from "@/types/site";
 
 export const siteConfig: SiteConfig = {
-  feature_flags: {
-    language_switcher: true,
+  featureFlags: {
+    languageSwitcher: true,
   },
   languages: {
     default: "en",

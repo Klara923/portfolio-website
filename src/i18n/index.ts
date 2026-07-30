@@ -1,12 +1,51 @@
-import { translations, type Locale } from "./translations";
+import { translations, type Locale, type TranslationTree } from "./translations";
 
-export type { Locale };
+export type { Locale, TranslationTree };
 
-export function getTranslation(
-  locale: Locale,
-  path: string,
-  params?: Record<string, string>,
-): string {
+/** Dot-paths to string leaves in the translation tree. */
+export type TranslationKey = {
+  [K in keyof TranslationTree & string]: TranslationTree[K] extends string
+    ? K
+    : TranslationTree[K] extends readonly unknown[]
+      ? never
+      : {
+          [P in keyof TranslationTree[K] & string]: TranslationTree[K][P] extends string
+            ? `${K}.${P}`
+            : TranslationTree[K][P] extends readonly unknown[]
+              ? never
+              : {
+                  [Q in keyof TranslationTree[K][P] & string]: TranslationTree[K][P][Q] extends string
+                    ? `${K}.${P}.${Q}`
+                    : TranslationTree[K][P][Q] extends readonly unknown[]
+                      ? never
+                      : {
+                          [R in keyof TranslationTree[K][P][Q] & string]: TranslationTree[K][P][Q][R] extends string
+                            ? `${K}.${P}.${Q}.${R}`
+                            : TranslationTree[K][P][Q][R] extends readonly unknown[]
+                              ? never
+                              : {
+                                  [S in keyof TranslationTree[K][P][Q][R] & string]: TranslationTree[K][P][Q][R][S] extends string
+                                    ? `${K}.${P}.${Q}.${R}.${S}`
+                                    : never;
+                                }[keyof TranslationTree[K][P][Q][R] & string];
+                        }[keyof TranslationTree[K][P][Q] & string];
+                }[keyof TranslationTree[K][P] & string];
+        }[keyof TranslationTree[K] & string];
+}[keyof TranslationTree & string];
+
+type ArrayKey = {
+  [K in keyof TranslationTree & string]: {
+    [P in keyof TranslationTree[K] & string]: {
+      [Q in keyof TranslationTree[K][P] & string]: {
+        [R in keyof TranslationTree[K][P][Q] & string]: TranslationTree[K][P][Q][R] extends readonly string[]
+          ? `${K}.${P}.${Q}.${R}`
+          : never;
+      }[keyof TranslationTree[K][P][Q] & string];
+    }[keyof TranslationTree[K][P] & string];
+  }[keyof TranslationTree[K] & string];
+}[keyof TranslationTree & string];
+
+function resolvePath(locale: Locale, path: string): unknown {
   const keys = path.split(".");
   let value: unknown = translations[locale];
 
@@ -14,11 +53,25 @@ export function getTranslation(
     if (value && typeof value === "object" && key in value) {
       value = (value as Record<string, unknown>)[key];
     } else {
-      return path;
+      return undefined;
     }
   }
 
-  if (typeof value !== "string") return path;
+  return value;
+}
+
+export function getTranslation(
+  locale: Locale,
+  path: TranslationKey,
+  params?: Record<string, string>,
+): string {
+  const value = resolvePath(locale, path);
+  if (typeof value !== "string") {
+    if (process.env.NODE_ENV !== "production") {
+      console.warn(`Missing translation: ${path} (${locale})`);
+    }
+    return path;
+  }
 
   if (!params) return value;
 
@@ -29,17 +82,27 @@ export function getTranslation(
   );
 }
 
-export function getTranslationArray(locale: Locale, path: string): string[] {
-  const keys = path.split(".");
-  let value: unknown = translations[locale];
+export function getTranslationArray(
+  locale: Locale,
+  path: ArrayKey,
+): string[] {
+  const value = resolvePath(locale, path);
+  return Array.isArray(value) ? value.map(String) : [];
+}
 
-  for (const key of keys) {
-    if (value && typeof value === "object" && key in value) {
-      value = (value as Record<string, unknown>)[key];
-    } else {
-      return [];
-    }
-  }
+/** Dynamic portfolio paths that can't be expressed as static TranslationKeys. */
+export function getPortfolioString(
+  locale: Locale,
+  path: string,
+): string | undefined {
+  const value = resolvePath(locale, path);
+  return typeof value === "string" ? value : undefined;
+}
 
+export function getPortfolioArray(
+  locale: Locale,
+  path: string,
+): string[] {
+  const value = resolvePath(locale, path);
   return Array.isArray(value) ? value.map(String) : [];
 }
