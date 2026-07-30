@@ -11,6 +11,7 @@ export type ExperienceEntry = {
   organization: string;
   period: string;
   role: string;
+  location?: string;
   description?: string;
   bullets?: string[];
   url?: string;
@@ -22,10 +23,18 @@ export const site = {
     email: "klara.swiecicka@hotmail.com",
     github: "https://github.com/Klara923",
     linkedin: "https://www.linkedin.com/in/klaramariaswiecicka",
+    cv: "/CV_Klara.pdf",
   },
 };
 
 export const education: EducationEntry[] = [
+  {
+    id: "masters",
+    title: "Master of Science in Software Engineering",
+    period: "2025 – Present",
+    institution: "Linnaeus University",
+    location: "Växjö, Sweden, Remotely",
+  },
   {
     id: "degree",
     title: "Graphic Design & Web Development, Bachelor in Informatics",
@@ -33,59 +42,43 @@ export const education: EducationEntry[] = [
     institution: "Jönköping University",
     location: "Sweden",
   },
-  {
-    id: "course-1",
-    title: "Code transformation and interpretation",
-    period: "2025",
-    institution: "Linnaeus University (LNU)",
-    location: "Sweden",
-  },
-  {
-    id: "course-2",
-    title: "Systems Modeling and Simulation",
-    period: "2025",
-    institution: "Linnaeus University (LNU)",
-    location: "Sweden",
-  },
-  {
-    id: "course-3",
-    title: "Machine learning",
-    period: "2026",
-    institution: "Linnaeus University (LNU)",
-    location: "Sweden",
-  },
-  {
-    id: "course-4",
-    title: "Lean startup",
-    period: "2026",
-    institution: "Linnaeus University (LNU)",
-    location: "Sweden",
-  },
 ];
 
 export const workExperience: ExperienceEntry[] = [
   {
-    id: "omnilexia-intern",
-    organization: "Omnilexia",
-    period: "02.2024 – 06.2024",
-    role: "UX/UI Design, Digital Marketing and Fullstack Engineer Intern",
-    url: "https://omnilexia.com",
+    id: "procforce-intern",
+    organization: "Procforce Software House",
+    period: "06.2026 – Present",
+    role: "Full-stack Developer Intern",
+    url: "https://procforce.pl/",
+    bullets: [
+      "Redesigning company and client websites from Figma designs and implementing them in code with a focus on responsiveness and accessibility.",
+      "Developing a QR ordering system and restaurant management application with React, TypeScript, and Prisma, covering both frontend and backend API.",
+      "Building and integrating interactive 3D product configurators in web applications.",
+      "Collaborating with designers and the development team on client project delivery.",
+    ],
   },
   {
     id: "omnilexia-fe",
     organization: "Omnilexia",
     period: "06.2024 – 09.2026",
-    role: "Fullstack Engineer",
+    role: "Full-stack Developer",
     url: "https://omnilexia.com",
     bullets: [
-      "Develop and maintain both frontend applications and backend APIs, delivering new features across the full technology stack.",
-      "Build responsive and user-friendly interfaces using modern frontend technologies.",
-      "Investigate, troubleshoot, and resolve bugs, performance bottlenecks, and production issues.",
-      "Actively participating in code reviews to ensure code quality, maintainability, security, and adherence to development standards.",
-      "Collaborate with designers, product owners, and other developers to deliver high-quality software solutions.",
-      "Refactor and improve existing codebases to enhance performance, scalability, and long-term maintainability.",
-      "Participate in feature planning, technical discussions, and solution design throughout the development lifecycle.",
+      "Development and maintenance of the web application and API, including implementation of new features on both frontend and backend.",
+      "Building responsive user interfaces in React and TypeScript.",
+      "Debugging and fixing issues along with application performance optimization.",
+      "Participation in code reviews and maintaining consistent code quality standards.",
+      "Refactoring existing components and modules to improve readability and maintainability.",
+      "Collaboration with designers, product owners, and the development team during planning and implementation of new features.",
     ],
+  },
+  {
+    id: "omnilexia-intern",
+    organization: "Omnilexia",
+    period: "02.2024 – 06.2024",
+    role: "UX/UI, Digital Marketing and Full-stack Intern",
+    url: "https://omnilexia.com",
   },
 ];
 

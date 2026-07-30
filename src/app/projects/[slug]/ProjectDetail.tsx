@@ -112,17 +112,6 @@ function ProjectBody({ project }: { project: Project }) {
   const secondaryUrl = resolveMediaUrl(project.secondary_media);
   const pdfUrl = resolveMediaUrl(project.pdf);
 
-  const caseStudySections: { key: keyof Project; label: string }[] = [
-    { key: "problem", label: t("projectDetail.problem") },
-    { key: "solution", label: t("projectDetail.solution") },
-    { key: "challenge", label: t("projectDetail.challenge") },
-    { key: "result", label: t("projectDetail.result") },
-  ];
-
-  const caseStudy = caseStudySections.filter(
-    (section) => (project[section.key] as string)?.trim().length > 0,
-  );
-
   return (
     <article>
       <header className={styles.detailHeader}>
@@ -206,21 +195,6 @@ function ProjectBody({ project }: { project: Project }) {
               sizes="(max-width: 1120px) 100vw, 1120px"
             />
           ) : null}
-        </div>
-      )}
-
-      {caseStudy.length > 0 && (
-        <div className={styles.detailCaseStudy}>
-          {caseStudy.map((section) => (
-            <section key={section.key} className={styles.detailCaseSection}>
-              <h2 className={styles.detailCaseLabel}>{section.label}</h2>
-              <div className={styles.detailCaseBlock}>
-                <p className={styles.detailBody}>
-                  {project[section.key] as string}
-                </p>
-              </div>
-            </section>
-          ))}
         </div>
       )}
 

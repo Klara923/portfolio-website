@@ -22,6 +22,7 @@ export function SiteHeader() {
 
   const socialItems = useMemo(
     () => [
+      { label: t("nav.downloadCv"), href: site.contact.cv, download: true },
       { label: t("nav.email"), href: `mailto:${site.contact.email}` },
       { label: t("nav.github"), href: site.contact.github },
       { label: t("nav.linkedin"), href: site.contact.linkedin },
@@ -85,14 +86,17 @@ export function SiteHeader() {
             <div className={styles.navGroup}>
               {socialItems.map((item) => {
                 const isMail = item.href.startsWith("mailto:");
+                const isDownload = "download" in item && item.download;
                 return (
                   <a
                     key={item.label}
                     href={item.href}
                     className={`${styles.navLink} ${styles.navSocial}`}
                     onClick={() => setMenuOpen(false)}
-                    {...(isMail
-                      ? {}
+                    {...(isMail || isDownload
+                      ? isDownload
+                        ? { download: "CV_Klara.pdf" }
+                        : {}
                       : { target: "_blank", rel: "noopener noreferrer" })}
                   >
                     {item.label}

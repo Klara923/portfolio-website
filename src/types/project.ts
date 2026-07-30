@@ -5,10 +5,6 @@ export type Project = {
   title: string;
   description: string;
   short_description: string;
-  problem: string;
-  solution: string;
-  challenge: string;
-  result: string;
   technologies: string[];
   image: string | null;
   secondary_media: string | null;

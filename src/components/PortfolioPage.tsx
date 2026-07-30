@@ -6,7 +6,6 @@ import { useLanguage } from "@/providers/LanguageProvider";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SectionBlock } from "@/components/sections/SectionBlock";
 import {
-  CoursesEntryRow,
   EducationEntryRow,
   ExperienceEntryRow,
 } from "@/components/sections/ResumeEntry";
@@ -36,6 +35,13 @@ export function PortfolioPage() {
               <br />
               {site.name}.
             </h1>
+            <a
+              href={site.contact.cv}
+              download="CV_Klara.pdf"
+              className={styles.homeHeroCvLink}
+            >
+              {t("nav.downloadCv")} <span aria-hidden>↓</span>
+            </a>
           </div>
           <div className={styles.homeHeroDesc}>
             <p>
@@ -70,11 +76,9 @@ export function PortfolioPage() {
 
         <SectionBlock title={t("sections.education")}>
           <div className={styles.homeStack}>
-            <EducationEntryRow entry={education[0]} />
-            <CoursesEntryRow
-              entries={education.slice(1)}
-              label={t("sections.courses")}
-            />
+            {education.map((entry) => (
+              <EducationEntryRow key={entry.id} entry={entry} />
+            ))}
           </div>
         </SectionBlock>
 
