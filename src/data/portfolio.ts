@@ -61,7 +61,7 @@ export const workExperience: ExperienceEntry[] = [
   {
     id: "omnilexia-fe",
     organization: "Omnilexia",
-    period: "06.2024 – 09.2026",
+    period: "06.2024 – 08.2026",
     role: "Full-stack Developer",
     url: "https://omnilexia.com",
     bullets: [
