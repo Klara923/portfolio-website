@@ -41,7 +41,6 @@ export function ProjectImage({
       className={imageClassName}
       sizes={sizes}
       priority={priority}
-      unoptimized
       onError={() => setUseFallback(true)}
     />
   );

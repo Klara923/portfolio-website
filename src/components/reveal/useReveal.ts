@@ -4,13 +4,17 @@ import { useEffect, useRef, useState } from "react";
 
 export function useReveal<T extends HTMLElement = HTMLElement>() {
   const ref = useRef<T>(null);
-  const [revealed, setRevealed] = useState(
-    () => typeof IntersectionObserver === "undefined",
-  );
+  // Always start false so server HTML matches the client's first paint.
+  const [revealed, setRevealed] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
-    if (!el || typeof IntersectionObserver === "undefined") return;
+    if (!el) return;
+
+    if (typeof IntersectionObserver === "undefined") {
+      const frame = requestAnimationFrame(() => setRevealed(true));
+      return () => cancelAnimationFrame(frame);
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
