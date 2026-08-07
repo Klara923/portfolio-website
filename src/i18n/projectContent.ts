@@ -21,6 +21,13 @@ export const projectContentEn: Record<string, ProjectContent> = {
     description:
       "Frontend implementation of a marketing website for a garden design studio. The site presents the brand offer (design, visualizations and realizations), company story and a masonry project gallery. Built with Vue 3, Vite and Tailwind CSS.",
   },
+  "qr-menu-lumiere-restaurant": {
+    title: "QR Menu – Lumière Restaurant",
+    shortDescription:
+      "QR menu and table-ordering app for a fine dining restaurant, built with React. Guests scan the code, browse dishes in four languages, order from the table and pay online, with BLIK or with the waiter.",
+    description:
+      "A QR menu and table-ordering application for Lumière, a fine dining restaurant. Guests scan the QR code placed on their table and land in a mobile-first menu tailored to their table number and preferred language (PL, EN, DE, UA). They can browse categories and dishes with ingredients and allergen information, add items with custom notes (e.g. “no onions”), and place the order directly from the table.\n\n\nThe app keeps the guest connected to the restaurant in real time. Orders reach the staff through socket.io, and every status change — accepted, in preparation, ready, delivered or paid — updates live on the guest's screen. Calling a waiter or asking for the bill is one tap away, and payment can be completed online with Stripe, via BLIK with a card terminal, or in cash with the waiter, including an optional tip.\n\n\nBuilt with React and Vite, with client-side routing, a custom state layer persisted in sessionStorage and a lightweight in-house i18n dictionary. Developed during my internship at Procforce Software House.",
+  },
   "pixel-cat-branding": {
     title: "Pixel Cat - Branding",
     shortDescription:
@@ -101,6 +108,13 @@ export const projectContentPl: Record<string, ProjectContent> = {
       "Responsywna strona marketingowa studia projektowania ogrodów, zbudowana w Vue i Tailwind CSS. Zawiera ofertę, galerię realizacji, informacje o firmie i kontakt.",
     description:
       "Frontend strony marketingowej dla studia projektowania ogrodów. Serwis prezentuje ofertę (projekty, wizualizacje i realizacje), historię firmy oraz galerię realizacji w układzie masonry. Zbudowana w Vue 3, Vite i Tailwind CSS.",
+  },
+  "qr-menu-lumiere-restaurant": {
+    title: "Menu QR – Restauracja Lumière",
+    shortDescription:
+      "Aplikacja menu QR i zamawiania ze stolika dla restauracji fine dining, zbudowana w React. Goście skanują kod, przeglądają menu w czterech językach, zamawiają ze stolika i płacą online, BLIK-iem lub u kelnera.",
+    description:
+      "Aplikacja menu QR i zamawiania ze stolika dla restauracji Lumière, serwującej dania kuchni fine dining. Gość skanuje kod QR umieszczony na stoliku i trafia do menu zaprojektowanego w pierwszej kolejności dla urządzeń mobilnych, dopasowanego do numeru stolika i wybranego języka (PL, EN, DE, UA). Może przeglądać kategorie oraz dania wraz z listą składników i alergenów, dodawać pozycje z własnymi uwagami (np. „bez cebuli”) i składać zamówienie bezpośrednio ze stolika.\n\n\nAplikacja łączy gościa z restauracją w czasie rzeczywistym. Zamówienia trafiają do personelu przez socket.io, a każda zmiana statusu — przyjęte, w przygotowaniu, gotowe, dostarczone lub opłacone — aktualizuje się na żywo na ekranie gościa. Przywołanie kelnera lub prośbę o rachunek załatwia jedno dotknięcie, a płatność można wykonać online przez Stripe, BLIK-iem na terminalu kart lub gotówką u kelnera, z opcją napiwku.\n\n\nZbudowana w React i Vite, z routingiem po stronie klienta, własną warstwą stanu przechowywaną w sessionStorage oraz lekkim wewnętrznym słownikiem i18n. Projekt powstał podczas praktyk w Procforce Software House.",
   },
   "pixel-cat-branding": {
     title: "Pixel Cat - Branding",
