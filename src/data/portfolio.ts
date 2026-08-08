@@ -83,7 +83,7 @@ export const extraExperience: ExperienceEntry[] = [
 
 export const languages: LanguageEntry[] = [
   { id: "pl", name: "Polish", level: "Native" },
-  { id: "en", name: "English", level: "B2 / C1" },
+  { id: "en", name: "English", level: "B2" },
 ];
 
 export const skillCategories: SkillCategory[] = [

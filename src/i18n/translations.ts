@@ -109,7 +109,7 @@ const en = {
     },
     spokenLanguages: {
       pl: { name: "Polish", level: "Native" },
-      en: { name: "English", level: "B2 / C1" },
+      en: { name: "English", level: "B2" },
     },
   },
 };
@@ -230,7 +230,7 @@ const pl: LocaleShape<typeof en> = {
     },
     spokenLanguages: {
       pl: { name: "Polski", level: "Ojczysty" },
-      en: { name: "Angielski", level: "B2 / C1" },
+      en: { name: "Angielski", level: "B2" },
     },
   },
 };
