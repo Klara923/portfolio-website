@@ -17,12 +17,12 @@ export const projectContentEn: Record<string, ProjectContent> = {
   "giarddesign-website": {
     title: "GiardDesign Website",
     shortDescription:
-      "Responsive marketing website for a garden design studio, built with Vue and Tailwind CSS. Includes service sections, project gallery, company info and contact.",
+      "Responsive marketing website for a garden design studio. Includes service sections, project gallery, company info and contact.",
     description:
-      "Frontend implementation of a marketing website for a garden design studio. The site presents the brand offer (design, visualizations and realizations), company story and a masonry project gallery. Built with Vue 3, Vite and Tailwind CSS.",
+      "Frontend implementation of a marketing website for a garden design studio. The design provided by AdRespect, created as a recruitment task.",
   },
   "qr-menu-lumiere-restaurant": {
-    title: "QR Menu – Lumière Restaurant",
+    title: "QR Menu - Lumière Restaurant",
     shortDescription:
       "QR menu and table-ordering app for a fine dining restaurant, built with React. Guests scan the code, browse dishes in four languages, order from the table and pay online, with BLIK or with the waiter.",
     description:
