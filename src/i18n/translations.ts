@@ -17,7 +17,7 @@ const en = {
   },
   hero: {
     greeting: "Hello, I'm",
-    p1: "I'm a **Frontend & Full-Stack Developer** with **2+ years of commercial experience** building modern web applications with **JavaScript, TypeScript, React, Next.js, Django, and Python**.",
+    p1: "I'm a **Frontend & Full-Stack Developer** with **2 years of commercial experience** building modern web applications with **JavaScript, TypeScript, React, Next.js, Django, and Python**.",
     p2: "I combine **software development with UI/UX design** to build **responsive, user-friendly web experiences**. I hold a Bachelor of Science in Informatics and am currently completing university-level studies in Computer Science and Informatics through freestanding courses at Linnaeus University.",
   },
   sections: {
@@ -64,8 +64,8 @@ const en = {
     education: {
       university: {
         title:
-          "University Studies in Computer Science & Informatics – Current Student",
-        period: "2026 – Present",
+          "University Studies in Computer Science & Informatics - Current Student",
+        period: "2026 - Present",
         location: "Remote",
       },
       degree: {
@@ -76,17 +76,17 @@ const en = {
     work: {
       "procforce-intern": {
         role: "Full-Stack Developer Intern",
-        period: "06.2026 – Present",
+        period: "06.2026 - Present",
         location: "Remote",
         bullets: [
-          "Built a full-stack QR restaurant ordering and management platform using React, TypeScript, and Prisma — covering both frontend and backend API.",
+          "Built a full-stack QR restaurant ordering and management platform using React, TypeScript, and Prisma - covering both frontend and backend API.",
           "Redesigned a responsive basketball-team website using React and TypeScript.",
           "Collaborated with product managers, designers, and developers to deliver client projects; tracked GitHub issues and contributed to debugging and automated/manual testing.",
         ],
       },
       "omnilexia-intern": {
         role: "Full-Stack, Graphic and UX/UI Design, Digital Marketing Intern",
-        period: "02.2024 – 06.2024",
+        period: "02.2024 - 06.2024",
         location: "Remote",
         bullets: [
           "Built and improved web features using React, Django, Python, and TypeScript, including REST APIs.",
@@ -96,7 +96,7 @@ const en = {
       },
       "omnilexia-fe": {
         role: "Junior Full-Stack Developer",
-        period: "06.2024 – 06.2026",
+        period: "06.2024 - 06.2026",
         location: "Remote",
         bullets: [
           "Developed and maintained features for a legal-tech SaaS platform using React, Next.js, TypeScript, and Tailwind CSS.",
@@ -194,8 +194,8 @@ const pl: LocaleShape<typeof en> = {
     education: {
       university: {
         title:
-          "Studia uniwersyteckie z informatyki (Computer Science & Informatics) – aktywna studentka",
-        period: "2026 – obecnie",
+          "Studia uniwersyteckie z informatyki (Computer Science & Informatics) - aktywna studentka",
+        period: "2026 - obecnie",
         location: "Zdalnie",
       },
       degree: {
@@ -206,17 +206,17 @@ const pl: LocaleShape<typeof en> = {
     work: {
       "procforce-intern": {
         role: "Stażystka Full-Stack Developer",
-        period: "06.2026 – obecnie",
+        period: "06.2026 - obecnie",
         location: "Zdalnie",
         bullets: [
-          "Zbudowałam pełnostackową platformę do zamawiania i zarządzania restauracją przez kod QR, korzystając z React, TypeScript i Prisma — obejmującą zarówno frontend, jak i backend API.",
+          "Zbudowałam pełnostackową platformę do zamawiania i zarządzania restauracją przez kod QR, korzystając z React, TypeScript i Prisma - obejmującą zarówno frontend, jak i backend API.",
           "Przeprojektowałam responsywną stronę internetową drużyny koszykarskiej, korzystając z React i TypeScript.",
           "Współpracowałam z product managerami, projektantami i developerami przy realizacji projektów klienckich; śledziłam zgłoszenia w GitHubie oraz przyczyniłam się do debugowania i testów automatycznych oraz manualnych.",
         ],
       },
       "omnilexia-intern": {
         role: "Stażystka Full-Stack, grafiki i projektowania UX/UI oraz marketingu cyfrowego",
-        period: "02.2024 – 06.2024",
+        period: "02.2024 - 06.2024",
         location: "Zdalnie",
         bullets: [
           "Budowałam i ulepszałam funkcjonalności webowe, korzystając z React, Django, Pythona i TypeScript, w tym z REST API.",
@@ -226,7 +226,7 @@ const pl: LocaleShape<typeof en> = {
       },
       "omnilexia-fe": {
         role: "Junior Full-Stack Developer",
-        period: "06.2024 – 06.2026",
+        period: "06.2024 - 06.2026",
         location: "Zdalnie",
         bullets: [
           "Rozwijałam i utrzymywałam funkcjonalności platformy SaaS typu legal-tech, korzystając z React, Next.js, TypeScript i Tailwind CSS.",

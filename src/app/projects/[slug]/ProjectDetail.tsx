@@ -186,7 +186,7 @@ function ProjectBody({ project }: { project: Project }) {
           ) : isImageUrl(secondaryUrl) ? (
             <ProjectImage
               src={secondaryUrl}
-              alt={`${project.title} — ${t("projectDetail.additionalView")}`}
+              alt={`${project.title} - ${t("projectDetail.additionalView")}`}
               fill
               className={styles.detailSecondaryImage}
               sizes="(max-width: 1120px) 100vw, 1120px"

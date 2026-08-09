@@ -11,7 +11,7 @@ const geistSans = Geist({
 export const metadata: Metadata = {
   title: "Portfolio",
   description:
-    "Full-stack developer portfolio — React, TypeScript, Django, and product design.",
+    "Full-stack developer portfolio - React, TypeScript, Django, and product design.",
 };
 
 export default function RootLayout({

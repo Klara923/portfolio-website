@@ -26,17 +26,17 @@ export const education: EducationEntry[] = [
   {
     id: "university",
     title:
-      "University Studies in Computer Science & Informatics – Current Student",
-    period: "2026 – Present",
+      "University Studies in Computer Science & Informatics - Current Student",
+    period: "2026 - Present",
     institution:
-      "Linnaeus University, Malmö University, Sweden – Freestanding University Courses",
+      "Linnaeus University, Malmö University, Sweden - Freestanding University Courses",
     location: "Remote",
   },
   {
     id: "degree",
     title:
       "Bachelor of Science in Informatics (Graphic Design & Web Development)",
-    period: "2022 – 2025",
+    period: "2022 - 2025",
     institution: "Jönköping University, Sweden",
   },
 ];
@@ -45,21 +45,21 @@ export const workExperience: ExperienceEntry[] = [
   {
     id: "procforce-intern",
     organization: "Procforce Software House",
-    period: "06.2026 – Present",
+    period: "06.2026 - Present",
     role: "",
     url: "https://procforce.pl/",
   },
   {
     id: "omnilexia-fe",
     organization: "Omnilexia",
-    period: "06.2024 – 06.2026",
+    period: "06.2024 - 06.2026",
     role: "",
     url: "https://omnilexia.com",
   },
   {
     id: "omnilexia-intern",
     organization: "Omnilexia",
-    period: "02.2024 – 06.2024",
+    period: "02.2024 - 06.2024",
     role: "",
     url: "https://omnilexia.com",
   },
@@ -69,7 +69,7 @@ export const extraExperience: ExperienceEntry[] = [
   {
     id: "justice",
     organization: "E-sport student association Justice",
-    period: "2022 – 2024",
+    period: "2022 - 2024",
     role: "",
   },
   {

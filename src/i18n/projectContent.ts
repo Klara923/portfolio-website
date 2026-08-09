@@ -110,16 +110,16 @@ export const projectContentPl: Record<string, ProjectContent> = {
       "Frontend strony marketingowej dla studia projektowania ogrodów. Serwis prezentuje ofertę (projekty, wizualizacje i realizacje), historię firmy oraz galerię realizacji w układzie masonry. Zbudowana w Vue 3, Vite i Tailwind CSS.",
   },
   "qr-menu-lumiere-restaurant": {
-    title: "Menu QR – Restauracja Lumière",
+    title: "Menu QR - Restauracja Lumière",
     shortDescription:
       "Aplikacja menu QR i zamawiania ze stolika dla restauracji fine dining, zbudowana w React. Goście skanują kod, przeglądają menu w czterech językach, zamawiają ze stolika i płacą online, BLIK-iem lub u kelnera.",
     description:
-      "Aplikacja menu QR i zamawiania ze stolika opracowana dla restauracji Lumière, serwującej dania kuchni fine dining. Gość skanuje kod QR na swoim stoliku, aby otworzyć menu zaprojektowane w pierwszej kolejności dla urządzeń mobilnych, powiązane z numerem stolika i wybranym językiem (PL, EN, DE, UA). Może przeglądać dania według kategorii, sprawdzać składniki i informacje o alergenach, dodawać pozycje z własnymi uwagami, takimi jak „bez cebuli”, oraz składać zamówienia bezpośrednio ze stolika.\n\n\nZamówienia i aktualizacje statusów są synchronizowane w czasie rzeczywistym za pomocą Socket.IO. Personel może przesuwać zamówienie przez kolejne etapy — przyjęte, w przygotowaniu, gotowe, dostarczone i opłacone — a zmiany są natychmiast odzwierciedlane na ekranie gościa. Aplikacja obsługuje także przywołanie kelnera, prośby o rachunek oraz płatności przez Stripe, BLIK-iem na terminalu kart lub gotówką, z opcją napiwku.\n\n\nZbudowana w React i Vite, z routingiem po stronie klienta, własną warstwą zarządzania stanem przechowywaną w sessionStorage oraz wewnętrznym słownikiem i18n. Projekt powstał podczas praktyk w Procforce Software House.",
+      "Aplikacja menu QR i zamawiania ze stolika opracowana dla restauracji Lumière, serwującej dania kuchni fine dining. Gość skanuje kod QR na swoim stoliku, aby otworzyć menu zaprojektowane w pierwszej kolejności dla urządzeń mobilnych, powiązane z numerem stolika i wybranym językiem (PL, EN, DE, UA). Może przeglądać dania według kategorii, sprawdzać składniki i informacje o alergenach, dodawać pozycje z własnymi uwagami, takimi jak „bez cebuli”, oraz składać zamówienia bezpośrednio ze stolika.\n\n\nZamówienia i aktualizacje statusów są synchronizowane w czasie rzeczywistym za pomocą Socket.IO. Personel może przesuwać zamówienie przez kolejne etapy - przyjęte, w przygotowaniu, gotowe, dostarczone i opłacone - a zmiany są natychmiast odzwierciedlane na ekranie gościa. Aplikacja obsługuje także przywołanie kelnera, prośby o rachunek oraz płatności przez Stripe, BLIK-iem na terminalu kart lub gotówką, z opcją napiwku.\n\n\nZbudowana w React i Vite, z routingiem po stronie klienta, własną warstwą zarządzania stanem przechowywaną w sessionStorage oraz wewnętrznym słownikiem i18n. Projekt powstał podczas praktyk w Procforce Software House.",
   },
   "pixel-cat-branding": {
     title: "Pixel Cat - Branding",
     shortDescription:
-      "Projekt identyfikacji wizualnej dla fikcyjnej marki Pixel Cat — warianty logo, animacja logo, paleta kolorów, typografia, wzory graficzne i mockupy.",
+      "Projekt identyfikacji wizualnej dla fikcyjnej marki Pixel Cat - warianty logo, animacja logo, paleta kolorów, typografia, wzory graficzne i mockupy.",
     description:
       "Indywidualny projekt brandingowy stworzony dla fikcyjnej firmy Pixel Cat. Opracowałam całą identyfikację wizualną - od koncepcji po finalną prezentację - obejmującą różne warianty logo, animowane logo, paletę kolorów, system typograficzny, wzory graficzne oraz mockupy prezentacyjne.\n\n\nCelem projektu było stworzenie spójnej i rozpoznawalnej identyfikacji marki, która może być konsekwentnie wykorzystywana zarówno w materiałach drukowanych, jak i cyfrowych. Skupiłam się na zachowaniu spójności wizualnej poszczególnych elementów oraz pokazaniu, jak identyfikacja może funkcjonować w różnych rzeczywistych zastosowaniach i formatach.",
   },
@@ -128,14 +128,14 @@ export const projectContentPl: Record<string, ProjectContent> = {
     shortDescription:
       "Gra przygodowa napisana w JavaScript, oparta na dialogach, eksploracji i kilku minigrach. Wszystkie elementy graficzne zostały zaprojektowane specjalnie na potrzeby projektu.",
     description:
-      "Oparta na dialogach gra przygodowa napisana w JavaScript, w której gracz eksploruje tajemniczy labirynt, a historia rozwija się poprzez sceny dialogowe, eksplorację oraz kilka zróżnicowanych minigier, które urozmaicają rozgrywkę i popychają narrację do przodu. Wszystkie elementy graficzne — postacie, środowiska i animacje — zostały zaprojektowane i narysowane od podstaw specjalnie na potrzeby projektu, dzięki czemu gra ma spójny, oryginalny styl wizualny. Gra została zbudowana w JavaScript z wykorzystaniem p5.js, w oparciu o HTML i CSS, działa w całości w przeglądarce i jest opublikowana na GitHub Pages.",
+      "Oparta na dialogach gra przygodowa napisana w JavaScript, w której gracz eksploruje tajemniczy labirynt, a historia rozwija się poprzez sceny dialogowe, eksplorację oraz kilka zróżnicowanych minigier, które urozmaicają rozgrywkę i popychają narrację do przodu. Wszystkie elementy graficzne - postacie, środowiska i animacje - zostały zaprojektowane i narysowane od podstaw specjalnie na potrzeby projektu, dzięki czemu gra ma spójny, oryginalny styl wizualny. Gra została zbudowana w JavaScript z wykorzystaniem p5.js, w oparciu o HTML i CSS, działa w całości w przeglądarce i jest opublikowana na GitHub Pages.",
   },
   "lunalander-cat-lander-game": {
     title: "Lunalander (gra z kotem)",
     shortDescription:
       "Prosta gra inspirowana klasycznym Lunar Lander. Zadaniem gracza jest bezpieczne wylądowanie kotem na jego legowisku, omijając przeszkody i psa.",
     description:
-      "Prosta gra inspirowana klasycznym Lunar Lander, w zabawnej kociej odsłonie. Gracz steruje latającym kotem i musi sprowadzić go bezpiecznie na jego legowisko, balansując ciągiem i prędkością opadania, jednocześnie omijając przeszkody i psa kręcącego się po ekranie. Ruch oparty na fizyce sprawia, że rozgrywka wymaga precyzji — każde lądowanie to kwestia wyczucia czasu i delikatnych korekt. Gra została zbudowana w JavaScript z wykorzystaniem p5.js oraz HTML i CSS jako warstwy interfejsu, działa bezpośrednio w przeglądarce i jest opublikowana na GitHub Pages.",
+      "Prosta gra inspirowana klasycznym Lunar Lander, w zabawnej kociej odsłonie. Gracz steruje latającym kotem i musi sprowadzić go bezpiecznie na jego legowisko, balansując ciągiem i prędkością opadania, jednocześnie omijając przeszkody i psa kręcącego się po ekranie. Ruch oparty na fizyce sprawia, że rozgrywka wymaga precyzji - każde lądowanie to kwestia wyczucia czasu i delikatnych korekt. Gra została zbudowana w JavaScript z wykorzystaniem p5.js oraz HTML i CSS jako warstwy interfejsu, działa bezpośrednio w przeglądarce i jest opublikowana na GitHub Pages.",
   },
   "graphic-design-portfolio": {
     title: "Portfolio projektów graficznych",
@@ -149,7 +149,7 @@ export const projectContentPl: Record<string, ProjectContent> = {
     shortDescription:
       "Zespołowy projekt realizowany na studiach, którego celem było zaprojektowanie i wydanie magazynu o Tokio. Obejmował research, skład publikacji, typografię, edycję zdjęć oraz przygotowanie materiałów do druku.",
     description:
-      "Zespołowy projekt realizowany na studiach, którego celem było stworzenie i wydanie drukowanego magazynu o Tokio — jego kulturze, zabytkach i codziennym życiu. Projekt obejmował cały proces wydawniczy: od researchu i opracowania treści, przez projektowanie edytorskie i layout, aż po finalne przygotowanie do druku.\n\n\nStrona wizualna łączyła typografię, systemy siatek, edycję zdjęć i kompozycję graficzną, a magazyn powstał w Adobe InDesign, Photoshop i Illustrator. Szczególną uwagę poświęcono hierarchii wizualnej, spójności oraz detalom istotnym przy druku, w tym zarządzaniu kolorami i spadom.\n\n\nPublikacja została wydana w formie drukowanego magazynu oraz interaktywnego PDF-a.",
+      "Zespołowy projekt realizowany na studiach, którego celem było stworzenie i wydanie drukowanego magazynu o Tokio - jego kulturze, zabytkach i codziennym życiu. Projekt obejmował cały proces wydawniczy: od researchu i opracowania treści, przez projektowanie edytorskie i layout, aż po finalne przygotowanie do druku.\n\n\nStrona wizualna łączyła typografię, systemy siatek, edycję zdjęć i kompozycję graficzną, a magazyn powstał w Adobe InDesign, Photoshop i Illustrator. Szczególną uwagę poświęcono hierarchii wizualnej, spójności oraz detalom istotnym przy druku, w tym zarządzaniu kolorami i spadom.\n\n\nPublikacja została wydana w formie drukowanego magazynu oraz interaktywnego PDF-a.",
   },
   "ai-powered-facial-emotion-recognition-with-3d-hand-driven-painting-application":
     {
@@ -178,7 +178,7 @@ export const projectContentPl: Record<string, ProjectContent> = {
     shortDescription:
       "Zespołowy projekt studencki polegający na zaprojektowaniu i stworzeniu sklepu internetowego dla lokalnej artystki. Interfejs został przygotowany w Figmie, a następnie wdrożony z wykorzystaniem HTML, CSS i JavaScript.",
     description:
-      "Zespołowy projekt studencki polegający na zaprojektowaniu i stworzeniu sklepu internetowego dla lokalnej artystki. Zakres pracy obejmował pełny proces frontendowy: interfejs został zaprojektowany w Figmie — od scenariuszy użytkownika i wireframe'ów po spójny system wizualny — a następnie wdrożony w HTML, CSS i JavaScript. Efektem jest responsywny sklep internetowy, który prezentuje prace artystki i wspiera prosty proces zakupowy, a praca w grupie pozwoliła przećwiczyć koordynację decyzji projektowych i programistycznych oraz współpracę w ramach wspólnego repozytorium GitHub.",
+      "Zespołowy projekt studencki polegający na zaprojektowaniu i stworzeniu sklepu internetowego dla lokalnej artystki. Zakres pracy obejmował pełny proces frontendowy: interfejs został zaprojektowany w Figmie - od scenariuszy użytkownika i wireframe'ów po spójny system wizualny - a następnie wdrożony w HTML, CSS i JavaScript. Efektem jest responsywny sklep internetowy, który prezentuje prace artystki i wspiera prosty proces zakupowy, a praca w grupie pozwoliła przećwiczyć koordynację decyzji projektowych i programistycznych oraz współpracę w ramach wspólnego repozytorium GitHub.",
   },
 };
 
