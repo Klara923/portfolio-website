@@ -51,9 +51,6 @@ export function PortfolioPage() {
             <p>
               <RichText text={t("hero.p2")} />
             </p>
-            <p>
-              <RichText text={t("hero.p3")} />
-            </p>
           </div>
         </div>
       </section>

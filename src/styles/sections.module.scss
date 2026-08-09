@@ -1,4 +1,3 @@
-// Section block
 .blockSection {
   padding: clamp(2.5rem, 6vw, 4rem) 0;
 }
@@ -57,7 +56,6 @@
   }
 }
 
-// Skills
 .skillsGroups {
   display: flex;
   flex-direction: column;
@@ -112,7 +110,6 @@
   border-color: var(--skill-design-border);
 }
 
-// Projects grid
 .projectsSection {
   padding: clamp(2rem, 6vw, 4rem) 0;
 }
@@ -303,7 +300,6 @@
   }
 }
 
-// Resume entries
 .resumeEntry {
   display: flex;
   flex-direction: column;
@@ -411,7 +407,6 @@
   white-space: nowrap;
 }
 
-// Contact
 .contactSection {
   padding: clamp(3rem, 8vw, 5rem) 0 clamp(2rem, 5vw, 3rem);
 }
@@ -489,7 +484,6 @@
   }
 }
 
-// Languages
 .languagesList {
   display: flex;
   flex-direction: column;

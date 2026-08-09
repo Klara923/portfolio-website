@@ -22,7 +22,6 @@ export const site = {
   },
 };
 
-/** Structural education entries — localized titles/periods live in i18n. */
 export const education: EducationEntry[] = [
   {
     id: "university",
@@ -42,7 +41,6 @@ export const education: EducationEntry[] = [
   },
 ];
 
-/** Structural work entries — localized roles/bullets live in i18n. */
 export const workExperience: ExperienceEntry[] = [
   {
     id: "procforce-intern",
@@ -67,7 +65,6 @@ export const workExperience: ExperienceEntry[] = [
   },
 ];
 
-/** Structural extra entries — localized roles live in i18n. */
 export const extraExperience: ExperienceEntry[] = [
   {
     id: "justice",

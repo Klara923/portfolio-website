@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 
-/** Renders strings with **bold** markers as <strong> nodes. */
 export function RichText({ text }: { text: string }): ReactNode {
   const parts = text.split(/(\*\*[^*]+\*\*)/g);
 

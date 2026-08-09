@@ -2,7 +2,6 @@ import { translations, type Locale, type TranslationTree } from "./translations"
 
 export type { Locale, TranslationTree };
 
-/** Dot-paths to string leaves in the translation tree. */
 export type TranslationKey = {
   [K in keyof TranslationTree & string]: TranslationTree[K] extends string
     ? K
@@ -90,7 +89,6 @@ export function getTranslationArray(
   return Array.isArray(value) ? value.map(String) : [];
 }
 
-/** Dynamic portfolio paths that can't be expressed as static TranslationKeys. */
 export function getPortfolioString(
   locale: Locale,
   path: string,

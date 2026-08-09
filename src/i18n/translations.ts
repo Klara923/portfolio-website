@@ -17,10 +17,8 @@ const en = {
   },
   hero: {
     greeting: "Hello, I'm",
-    // **text** renders as <strong> via RichText
-    p1: "**Full-stack Developer** with **over 2 years of experience** coding **SaaS**. I work mainly with **React, TypeScript, and Django**, with a particular focus on the frontend.",
-    p2: "I combine technical skills with a **strong eye for design** — I spent **over 3 years studying software development and graphic design in Sweden**, which gave me a solid foundation in **UX/UI** and a user-centered approach.",
-    p3: "I'm based in Poland and open to **remote, hybrid, and international opportunities**.",
+    p1: "I'm a **Frontend & Full-Stack Developer** with **2+ years of commercial experience** building modern web applications with **JavaScript, TypeScript, React, Next.js, Django, and Python**.",
+    p2: "I combine **software development with UI/UX design** to build **responsive, user-friendly web experiences**. I hold a Bachelor of Science in Informatics and am currently completing university-level studies in Computer Science and Informatics through freestanding courses at Linnaeus University.",
   },
   sections: {
     workExperience: "Work experience",
@@ -29,7 +27,7 @@ const en = {
     projects: "Projects",
     extraExperience: "Extra experience",
     languagesTitle: "Languages",
-    contactTitle: "Don't hesitate to contact me.",
+    contactTitle: "Let’s connect.",
   },
   skills: {
     frontend: "Frontend",
@@ -149,9 +147,8 @@ const pl: LocaleShape<typeof en> = {
   },
   hero: {
     greeting: "Cześć, jestem",
-    p1: "**Full-stack Developer** z **ponad 2-letnim doświadczeniem** w kodowaniu **SaaS**. Na co dzień pracuję głównie w **React, TypeScript i Django**, ze szczególnym naciskiem na warstwę frontendową.",
-    p2: "Łączę kompetencje techniczne z **wyczuciem designu** — przez **ponad 3 lata studiowałam software development, grafikę i projektowanie w Szwecji**, co dało mi solidne podstawy w **UX/UI** i podejściu user-centered.",
-    p3: "Mieszkam w Polsce i jestem otwarta na **pracę zdalną, hybrydową oraz możliwości za granicą**.",
+    p1: "Jestem **Frontend & Full-Stack Developer** z **ponad 2-letnim doświadczeniem komercyjnym** w tworzeniu nowoczesnych aplikacji webowych w **JavaScript, TypeScript, React, Next.js, Django i Python**.",
+    p2: "Łączę **rozwój oprogramowania z projektowaniem UI/UX**, aby tworzyć **responsywne i przyjazne dla użytkownika doświadczenia webowe**. Posiadam licencjat z informatyki, a obecnie kontynuuję studia uniwersyteckie z informatyki w formie kursów freestanding na Uniwersytecie Linneusza.",
   },
   sections: {
     workExperience: "Doświadczenie zawodowe",

@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 
 export function useReveal<T extends HTMLElement = HTMLElement>() {
   const ref = useRef<T>(null);
-  // Always start false so server HTML matches the client's first paint.
   const [revealed, setRevealed] = useState(false);
 
   useEffect(() => {

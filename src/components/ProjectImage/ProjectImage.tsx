@@ -27,10 +27,7 @@ export function ProjectImage({
     .join(" ");
 
   if (useFallback) {
-    return (
-      // eslint-disable-next-line @next/next/no-img-element -- fallback when next/image optimization fails
-      <img src={src} alt={alt} className={imageClassName} />
-    );
+    return <img src={src} alt={alt} className={imageClassName} />;
   }
 
   return (
