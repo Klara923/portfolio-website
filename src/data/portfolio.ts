@@ -25,18 +25,20 @@ export const site = {
 /** Structural education entries — localized titles/periods live in i18n. */
 export const education: EducationEntry[] = [
   {
-    id: "masters",
-    title: "Master of Science in Software Engineering",
-    period: "2025 – Present",
-    institution: "Linnaeus University",
-    location: "Växjö, Sweden, Remotely",
+    id: "university",
+    title:
+      "University Studies in Computer Science & Informatics – Current Student",
+    period: "2026 – Present",
+    institution:
+      "Linnaeus University, Malmö University, Sweden – Freestanding University Courses",
+    location: "Remote",
   },
   {
     id: "degree",
-    title: "Graphic Design & Web Development, Bachelor in Informatics",
+    title:
+      "Bachelor of Science in Informatics (Graphic Design & Web Development)",
     period: "2022 – 2025",
-    institution: "Jönköping University",
-    location: "Sweden",
+    institution: "Jönköping University, Sweden",
   },
 ];
 
@@ -52,7 +54,7 @@ export const workExperience: ExperienceEntry[] = [
   {
     id: "omnilexia-fe",
     organization: "Omnilexia",
-    period: "06.2024 – 08.2026",
+    period: "06.2024 – 06.2026",
     role: "",
     url: "https://omnilexia.com",
   },
@@ -92,26 +94,41 @@ export const skillCategories: SkillCategory[] = [
     label: "Frontend",
     skills: [
       "React",
-      "JavaScript",
+      "JavaScript ES6+",
       "TypeScript",
       "Next.js",
-      "HTML & CSS",
+      "HTML5 & CSS3",
       "Tailwind CSS",
     ],
   },
   {
     id: "backend",
     label: "Backend",
-    skills: ["Python", "Django", "REST APIs"],
+    skills: [
+      "Python",
+      "Django",
+      "Django REST Framework",
+      "Node.js",
+      "Express",
+      "Prisma",
+      "REST APIs",
+      "SQL",
+    ],
   },
   {
     id: "tools",
     label: "Tools & workflow",
     skills: [
       "Git",
+      "GitHub",
       "Docker",
       "Postman",
       "Swagger",
+      "CI/CD",
+      "Agile",
+      "Scrum",
+      "Code Review",
+      "Refactoring",
       "Automated testing (End-to-end testing using Playwright, Cypress, and Behave BDD)",
       "Practical use of AI - Cursor, Claude Code",
     ],

@@ -64,38 +64,48 @@ const en = {
   },
   portfolio: {
     education: {
-      masters: {
-        title: "Master of Science in Software Engineering",
-        period: "2025 – Present",
-        location: "Växjö, Sweden, Remotely",
+      university: {
+        title:
+          "University Studies in Computer Science & Informatics – Current Student",
+        period: "2026 – Present",
+        location: "Remote",
       },
       degree: {
-        title: "Graphic Design & Web Development, Bachelor in Informatics",
+        title:
+          "Bachelor of Science in Informatics (Graphic Design & Web Development)",
       },
     },
     work: {
       "procforce-intern": {
-        role: "Full-stack Developer Intern",
+        role: "Full-Stack Developer Intern",
         period: "06.2026 – Present",
+        location: "Remote",
         bullets: [
-          "Redesigning company and client websites from Figma designs and implementing them in code with a focus on responsiveness and accessibility.",
-          "Developing a QR ordering system and restaurant management application with React, TypeScript, and Prisma, covering both frontend and backend API.",
-          "Building and integrating interactive 3D product configurators in web applications.",
-          "Collaborating with designers and the development team on client project delivery.",
+          "Built a full-stack QR restaurant ordering and management platform using React, TypeScript, and Prisma — covering both frontend and backend API.",
+          "Redesigned a responsive basketball-team website using React and TypeScript.",
+          "Collaborated with product managers, designers, and developers to deliver client projects; tracked GitHub issues and contributed to debugging and automated/manual testing.",
         ],
       },
       "omnilexia-intern": {
-        role: "UX/UI, Digital Marketing and Full-stack Intern",
+        role: "Full-Stack, Graphic and UX/UI Design, Digital Marketing Intern",
+        period: "02.2024 – 06.2024",
+        location: "Remote",
+        bullets: [
+          "Built and improved web features using React, Django, Python, and TypeScript, including REST APIs.",
+          "Designed UX/UI and prototypes in Figma and created marketing assets with Adobe Creative Suite, Canva, and Figma.",
+          "Maintained code quality, documentation, and participated in code reviews.",
+        ],
       },
       "omnilexia-fe": {
-        role: "Full-stack Developer",
+        role: "Junior Full-Stack Developer",
+        period: "06.2024 – 06.2026",
+        location: "Remote",
         bullets: [
-          "Development and maintenance of the web application and API, including implementation of new features on both frontend and backend.",
-          "Building responsive user interfaces in React and TypeScript.",
-          "Debugging and fixing issues along with application performance optimization.",
-          "Participation in code reviews and maintaining consistent code quality standards.",
-          "Refactoring existing components and modules to improve readability and maintainability.",
-          "Collaboration with designers, product owners, and the development team during planning and implementation of new features.",
+          "Developed and maintained features for a legal-tech SaaS platform using React, Next.js, TypeScript, and Tailwind CSS.",
+          "Implemented Django and Django REST Framework APIs and managed PostgreSQL database design and integration.",
+          "Debugged, refactored, and optimized code, improving performance and maintainability.",
+          "Wrote and maintained automated tests using Playwright, Cypress, and Behave.",
+          "Participated in Agile ceremonies, code reviews, and collaborated with cross-functional teams.",
         ],
       },
     },
@@ -185,38 +195,48 @@ const pl: LocaleShape<typeof en> = {
   },
   portfolio: {
     education: {
-      masters: {
-        title: "Master of Science in Software Engineering",
-        period: "2025 – obecnie",
-        location: "Växjö, Szwecja, zdalnie",
+      university: {
+        title:
+          "Studia uniwersyteckie z informatyki (Computer Science & Informatics) – aktywna studentka",
+        period: "2026 – obecnie",
+        location: "Zdalnie",
       },
       degree: {
-        title: "Graphic Design and Web Development, licencjat z informatyki",
+        title:
+          "Licencjat z informatyki (projektowanie graficzne i tworzenie stron internetowych)",
       },
     },
     work: {
       "procforce-intern": {
-        role: "Stażystka Full-stack Developer",
+        role: "Stażystka Full-Stack Developer",
         period: "06.2026 – obecnie",
+        location: "Zdalnie",
         bullets: [
-          "Przeprojektowywanie stron internetowych firm i klientów na podstawie projektów z Figma oraz wdrażanie ich w kodzie z dbałością o responsywność i dostępność.",
-          "Rozwój systemu zamawiania przez kod QR oraz aplikacji do zarządzania restauracją z wykorzystaniem React, TypeScript i Prisma, obejmujący frontend oraz backend API.",
-          "Tworzenie i integracja interaktywnych konfiguratorów produktów 3D w aplikacjach webowych.",
-          "Współpraca z projektantami i zespołem developerskim przy realizacji projektów dla klientów.",
+          "Zbudowałam pełnostackową platformę do zamawiania i zarządzania restauracją przez kod QR, korzystając z React, TypeScript i Prisma — obejmującą zarówno frontend, jak i backend API.",
+          "Przeprojektowałam responsywną stronę internetową drużyny koszykarskiej, korzystając z React i TypeScript.",
+          "Współpracowałam z product managerami, projektantami i developerami przy realizacji projektów klienckich; śledziłam zgłoszenia w GitHubie oraz przyczyniłam się do debugowania i testów automatycznych oraz manualnych.",
         ],
       },
       "omnilexia-intern": {
-        role: "Stażystka UX/UI, marketingu cyfrowego i Full-stack",
+        role: "Stażystka Full-Stack, grafiki i projektowania UX/UI oraz marketingu cyfrowego",
+        period: "02.2024 – 06.2024",
+        location: "Zdalnie",
+        bullets: [
+          "Budowałam i ulepszałam funkcjonalności webowe, korzystając z React, Django, Pythona i TypeScript, w tym z REST API.",
+          "Projektowałam UX/UI oraz prototypy w Figmie i tworzyłam materiały marketingowe w Adobe Creative Suite, Canva i Figmie.",
+          "Dbałam o jakość kodu, dokumentację oraz uczestniczyłam w code review.",
+        ],
       },
       "omnilexia-fe": {
-        role: "Full-stack Developer",
+        role: "Junior Full-Stack Developer",
+        period: "06.2024 – 06.2026",
+        location: "Zdalnie",
         bullets: [
-          "Rozwój i utrzymanie aplikacji webowej oraz API, obejmujące implementację nowych funkcjonalności po stronie frontendu i backendu.",
-          "Tworzenie responsywnych interfejsów użytkownika w React i TypeScript.",
-          "Diagnostyka i usuwanie błędów oraz optymalizacja wydajności aplikacji.",
-          "Udział w code review i utrzymywaniu spójnych standardów jakości kodu.",
-          "Refaktoryzacja istniejących komponentów i modułów w celu poprawy czytelności oraz łatwości dalszego rozwoju.",
-          "Współpraca z projektantami, product ownerami i zespołem developerskim podczas planowania oraz wdrażania nowych funkcjonalności.",
+          "Rozwijałam i utrzymywałam funkcjonalności platformy SaaS typu legal-tech, korzystając z React, Next.js, TypeScript i Tailwind CSS.",
+          "Implementowałam API w Django i Django REST Framework oraz zarządzałam projektowaniem i integracją bazy danych PostgreSQL.",
+          "Debugowałam, refaktoryzowałam i optymalizowałam kod, poprawiając wydajność i łatwość utrzymania.",
+          "Pisałam i utrzymywałam testy automatyczne w Playwright, Cypress i Behave.",
+          "Uczestniczyłam w ceremoniach Agile, code review oraz współpracowałam z zespołami wielofunkcyjnymi.",
         ],
       },
     },
