@@ -28,6 +28,13 @@ export const projectContentEn: Record<string, ProjectContent> = {
     description:
       "A QR menu and table-ordering application developed for Lumière, a fine dining restaurant. Guests scan the QR code on their table to open a mobile-first menu linked to their table number and selected language (PL, EN, DE, UA). They can browse dishes by category, view ingredients and allergen information, add custom notes such as “no onions”, and place orders directly from their table.\n\n\nOrders and status updates are synchronized in real time using Socket.IO. Staff can update an order through different stages - accepted, in preparation, ready, delivered, and paid - with changes immediately reflected on the guest’s screen. The application also supports waiter calls, bill requests, and payments through Stripe, BLIK via a card terminal, or cash, with optional tipping.\n\n\nBuilt with React and Vite, using client-side routing, a custom state management layer persisted in sessionStorage, and an in-house i18n dictionary. Developed during my internship at Procforce Software House.",
   },
+  "wilki-gdansk-website": {
+    title: "WILKI Gdańsk Basketball Website",
+    shortDescription:
+      "Website for the WILKI Gdańsk basketball club, built with React. The site presents the team, news, match schedule, history, ticket sales and the Hala Bursztynowa arena.",
+    description:
+      "Website developed for WILKI Gdańsk basketball club using React, Vite, and TypeScript. The project includes pages for the team, club history, news, match results, schedule, ticket information, and the Hala Bursztynowa arena.\n\n\nThe interface was designed with a responsive layout for mobile, tablet, and desktop screen sizes. The site also includes a photo gallery, sponsors section, and contact information for the club office.\n\n\nThe project focused on organizing a range of club-related content into a clear navigation structure while maintaining consistent UI components and responsive behavior across different screen sizes.",
+  },
   "pixel-cat-branding": {
     title: "Pixel Cat - Branding",
     shortDescription:
@@ -115,6 +122,13 @@ export const projectContentPl: Record<string, ProjectContent> = {
       "Aplikacja menu QR i zamawiania ze stolika dla restauracji fine dining, zbudowana w React. Goście skanują kod, przeglądają menu w czterech językach, zamawiają ze stolika i płacą online, BLIK-iem lub u kelnera.",
     description:
       "Aplikacja menu QR i zamawiania ze stolika opracowana dla restauracji Lumière, serwującej dania kuchni fine dining. Gość skanuje kod QR na swoim stoliku, aby otworzyć menu zaprojektowane w pierwszej kolejności dla urządzeń mobilnych, powiązane z numerem stolika i wybranym językiem (PL, EN, DE, UA). Może przeglądać dania według kategorii, sprawdzać składniki i informacje o alergenach, dodawać pozycje z własnymi uwagami, takimi jak „bez cebuli”, oraz składać zamówienia bezpośrednio ze stolika.\n\n\nZamówienia i aktualizacje statusów są synchronizowane w czasie rzeczywistym za pomocą Socket.IO. Personel może przesuwać zamówienie przez kolejne etapy - przyjęte, w przygotowaniu, gotowe, dostarczone i opłacone - a zmiany są natychmiast odzwierciedlane na ekranie gościa. Aplikacja obsługuje także przywołanie kelnera, prośby o rachunek oraz płatności przez Stripe, BLIK-iem na terminalu kart lub gotówką, z opcją napiwku.\n\n\nZbudowana w React i Vite, z routingiem po stronie klienta, własną warstwą zarządzania stanem przechowywaną w sessionStorage oraz wewnętrznym słownikiem i18n. Projekt powstał podczas praktyk w Procforce Software House.",
+  },
+  "wilki-gdansk-website": {
+    title: "Strona Klubu Koszykarskiego WILKI Gdańsk",
+    shortDescription:
+      "Strona klubu koszykarskiego WILKI Gdańsk, zbudowana w React prezentująca drużynę, aktualności, terminarz meczów, historię, sprzedaż biletów i halę.",
+    description:
+      "Strona internetowa stworzona dla klubu koszykarskiego WILKI Gdańsk z wykorzystaniem React, Vite i TypeScript. Projekt obejmuje strony dotyczące drużyny, historii klubu, aktualności, wyników meczów, terminarza, informacji o biletach oraz Hali Bursztynowej.\n\n\nInterfejs został zaprojektowany w responsywnym układzie dostosowanym do ekranów telefonów, tabletów i komputerów. Strona zawiera również galerię zdjęć, sekcję sponsorów oraz dane kontaktowe biura klubu.\n\n\nProjekt koncentrował się na uporządkowaniu różnych rodzajów treści związanych z klubem w przejrzystą strukturę nawigacji oraz na zachowaniu spójnych komponentów interfejsu i responsywnego działania na różnych rozmiarach ekranów.",
   },
   "pixel-cat-branding": {
     title: "Pixel Cat - Branding",

@@ -53,6 +53,18 @@ export const projectRecords: ProjectRecord[] = [
     displayOrder: 0,
   },
   {
+    slug: "wilki-gdansk-website",
+    category: "programming",
+    technologies: ["React", "Vite", "TypeScript", "Responsive Design"],
+    image: "/projects/wilki.webp",
+    secondaryMedia: null,
+    pdf: null,
+    projectUrl: "https://wilki-gdansk.vercel.app/",
+    githubUrl: null,
+    featured: false,
+    displayOrder: 0,
+  },
+  {
     slug: "pixel-cat-branding",
     category: "design",
     technologies: [
