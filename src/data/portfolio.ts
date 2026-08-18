@@ -106,7 +106,6 @@ export const skillCategories: SkillCategory[] = [
       "Django",
       "Django REST Framework",
       "Node.js",
-      "Express",
       "Prisma",
       "REST APIs",
       "SQL",
